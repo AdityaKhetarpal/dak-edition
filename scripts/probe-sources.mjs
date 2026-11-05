@@ -41,7 +41,8 @@ const pages = PAPERS.flatMap((paper) => [
 ]);
 
 console.log('\n== Feeds ==');
-const feedLines = await mapLimit(feeds, 6, async (feed) => `${await probeFeed(feed.url)}  ${feed.paper} / ${feed.label}  ${feed.url}`);
+// The same two at a time as the morning run, so the news indexes don't refuse the check.
+const feedLines = await mapLimit(feeds, 2, async (feed) => `${await probeFeed(feed.url)}  ${feed.paper} / ${feed.label}  ${feed.url}`);
 console.log(feedLines.join('\n'));
 
 if (CANDIDATES.length) {
