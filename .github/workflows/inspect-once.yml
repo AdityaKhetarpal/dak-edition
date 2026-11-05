@@ -1,0 +1,60 @@
+name: Inspect once
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Inspect
+        run: |
+          cat > scripts/inspect-once.mjs <<'SCRIPT'
+          import { PAPERS } from '../config/papers.mjs';
+          import { fetchText } from '../lib/http.mjs';
+          import { parseFeed } from '../lib/feed.mjs';
+
+          console.log('== Bing paging');
+          const bing = (first) => `https://www.bing.com/news/search?q=site%3Aindianexpress.com%2Farticle%2Findia&format=rss&setmkt=en-IN&setlang=en-IN&qft=interval%3d%228%22&first=${first}`;
+          const seen = new Set();
+          for (const first of [1, 13, 25, 37]) {
+            try {
+              const items = parseFeed((await fetchText(bing(first), { attempts: 1 })).text);
+              const fresh = items.filter((item) => !seen.has(item.title));
+              items.forEach((item) => seen.add(item.title));
+              console.log(`RESULT first=${first}: ${items.length} items, ${fresh.length} new`);
+            } catch (error) { console.log(`RESULT first=${first}: ${error.message}`); }
+          }
+
+          console.log('== Past captures of pages that refuse automated checks');
+          const refused = ['indian-express', 'business-standard', 'financial-express', 'telegraph'];
+          const pages = PAPERS.filter((paper) => refused.includes(paper.id)).flatMap((paper) => [paper.home, paper.epaper, ...paper.desks.map((desk) => desk.url)]);
+          for (const url of pages) {
+            try {
+              const { text } = await fetchText(`https://archive.org/wayback/available?url=${encodeURIComponent(url)}`, { attempts: 2 });
+              const closest = JSON.parse(text).archived_snapshots?.closest;
+              console.log(`RESULT ${closest?.status ?? 'none'} ${closest?.timestamp?.slice(0, 8) ?? ''} ${url}`);
+            } catch (error) { console.log(`RESULT error ${error.message} ${url}`); }
+          }
+
+          console.log('== Times of India opinion pages');
+          const robots = (await fetchText('https://timesofindia.indiatimes.com/robots.txt', { attempts: 1 })).text;
+          console.log('RESULT robots rules for blogs/opinion:', robots.split('\n').filter((line) => /blogs|opinion|edit/i.test(line)).slice(0, 12).join(' | ') || 'none');
+          for (const url of ['https://timesofindia.indiatimes.com/blogs/', 'https://timesofindia.indiatimes.com/blogs/toi-editorials/', 'https://timesofindia.indiatimes.com/blogs/toi-edit-page/', 'https://timesofindia.indiatimes.com/opinion']) {
+            try {
+              const { text, finalUrl } = await fetchText(url, { attempts: 1 });
+              const links = [...text.matchAll(/href="(https:\/\/timesofindia\.indiatimes\.com\/blogs\/[a-z0-9-]+\/[a-z0-9-]+\/?)"/g)].map((match) => match[1]);
+              const dates = [...text.matchAll(/(?:November|October)\s+\d{1,2},\s+2026|\d{1,2}\s+(?:Nov|Oct)\s+2026/g)].map((match) => match[0]);
+              console.log(`RESULT ${url} -> ${finalUrl} size ${text.length}, article links ${new Set(links).size}, recent dates ${dates.length}`);
+              console.log(`RESULT   sample ${[...new Set(links)].slice(0, 4).join(' ')}`);
+              console.log(`RESULT   dates ${[...new Set(dates)].slice(0, 5).join(', ')}`);
+            } catch (error) { console.log(`RESULT ${url}: ${error.message}`); }
+          }
+          SCRIPT
+          node scripts/inspect-once.mjs
