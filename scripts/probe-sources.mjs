@@ -15,7 +15,9 @@ async function probeFeed(url) {
     const items = parseFeed(text);
     const withSummary = items.filter((item) => item.summary).length;
     const newest = items.map((item) => item.publishedAt).filter(Boolean).sort().at(-1);
-    const sample = process.env.PROBE_SAMPLES ? `\n       e.g. ${items[0]?.title}\n       ${items[0]?.url?.slice(0, 110)}` : '';
+    const sample = process.env.PROBE_SAMPLES
+      ? `\n       e.g. ${items[0]?.title}\n       ${items[0]?.url?.slice(0, 130)}\n       ${(items.find((item) => item.summary)?.summary ?? 'no summary').slice(0, 140)}`
+      : '';
     return `ok   ${String(items.length).padStart(3)} items, ${String(withSummary).padStart(3)} summaries, newest ${hoursAgo(newest)}h ago${sample}`;
   } catch (error) {
     return `FAIL ${error.message}`;
