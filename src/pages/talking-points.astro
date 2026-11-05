@@ -1,0 +1,20 @@
+---
+import Sheet from '../layouts/Sheet.astro';
+import Topic from '../components/Topic.astro';
+import { frontPage } from '../lib/edition.js';
+
+const { allTopics: all } = frontPage();
+---
+
+<Sheet title="Talking points" current="topics">
+  <header class="page-head">
+    <h1>Talking points</h1>
+    <p>The stories that the most papers ran today. Each paper&rsquo;s name opens its own piece.</p>
+  </header>
+
+  {all.length === 0 && <p class="press-note">No story has been picked up by several papers yet.</p>}
+
+  <div class="topic-board">
+    {all.map((topic) => <Topic topic={topic} />)}
+  </div>
+</Sheet>

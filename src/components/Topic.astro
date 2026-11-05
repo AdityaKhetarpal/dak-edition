@@ -1,0 +1,21 @@
+---
+const { topic } = Astro.props;
+const storyCount = topic.stories.length;
+---
+
+<article class="topic">
+  <h3 class="topic-name">
+    <a href={`/topic/${topic.slug}/`}>{topic.name}</a>
+  </h3>
+  <p class="topic-count">{topic.papers.length} papers, {storyCount} stories</p>
+  <p class="topic-lead">
+    <a href={topic.leadStory.url} target="_blank" rel="noopener">{topic.leadStory.title}</a>
+  </p>
+  <ul class="sigils" aria-label={`Read ${topic.name} in`}>
+    {topic.coverage.map(({ paper, story }) => (
+      <li>
+        <a href={story.url} target="_blank" rel="noopener" title={`${paper.name}: ${story.title}`}>{paper.sigil}</a>
+      </li>
+    ))}
+  </ul>
+</article>

@@ -1,0 +1,54 @@
+---
+import Story from '../../components/Story.astro';
+import Sheet from '../../layouts/Sheet.astro';
+import { PAPERS, SECTIONS, edition, reportFor } from '../../lib/edition.js';
+
+export function getStaticPaths() {
+  return PAPERS.map((paper) => ({ params: { id: paper.id }, props: { paper } }));
+}
+
+const { paper } = Astro.props;
+const stories = edition.stories.filter((story) => story.paper === paper.id);
+const report = reportFor(paper.id);
+
+const pages = SECTIONS.map((section) => ({
+  section,
+  stories: stories.filter((story) => story.section === section.id),
+})).filter((page) => page.stories.length > 0);
+---
+
+<Sheet title={paper.name} current={paper.id}>
+  <header class="page-head paper-head">
+    <h1>{paper.name}</h1>
+    <p class="paper-links">
+      <a class="paper-epaper" href={paper.epaper} target="_blank" rel="noopener">Open today&rsquo;s e-paper</a>
+      <a href={paper.home} target="_blank" rel="noopener">Website</a>
+      {paper.desks.map((desk) => (
+        <a href={desk.url} target="_blank" rel="noopener">{desk.label}</a>
+      ))}
+    </p>
+    {paper.headlinesVia && (
+      <p class="paper-note">
+        This paper closes its feed to automated readers, so these headlines come from {paper.headlinesVia},
+        without summaries.
+      </p>
+    )}
+  </header>
+
+  {stories.length === 0 && (
+    <p class="press-note">
+      No stories came through from this paper today
+      {report?.feedsTotal ? ` (${report.feedsRead} of ${report.feedsTotal} feeds answered)` : ''}. Its e-paper and
+      website links above still work.
+    </p>
+  )}
+
+  {pages.map((page) => (
+    <section class="paper-section">
+      <h2 class="band-head">{page.section.name}</h2>
+      <div class="running-columns">
+        {page.stories.map((story) => <Story story={story} showPaper={false} showDesk={true} />)}
+      </div>
+    </section>
+  ))}
+</Sheet>

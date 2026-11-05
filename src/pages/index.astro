@@ -1,0 +1,107 @@
+---
+import Column from '../components/Column.astro';
+import Story from '../components/Story.astro';
+import Topic from '../components/Topic.astro';
+import Sheet from '../layouts/Sheet.astro';
+import { PAPERS, edition, frontPage, reportFor } from '../lib/edition.js';
+
+const front = frontPage();
+const hasNews = edition.stories.length > 0;
+const alsoIn = front.banner?.coverage.filter(({ story }) => story.id !== front.lead.id) ?? [];
+---
+
+<Sheet current="front">
+  {!hasNews && (
+    <section class="press-note">
+      <h1>The first edition is on the press</h1>
+      <p>Stories appear here after the next morning run, by 8:30 AM IST.</p>
+    </section>
+  )}
+
+  {hasNews && (
+    <>
+      <div class="front">
+        <div class="front-news">
+          <Story story={front.lead} size="lead" />
+          {alsoIn.length > 0 && (
+            <p class="also-in">
+              Also in{' '}
+              {alsoIn.map(({ paper, story }, index) => (
+                <>
+                  <a href={story.url} target="_blank" rel="noopener">{paper.name.replace(/^The /, '')}</a>
+                  {index < alsoIn.length - 1 ? ', ' : ''}
+                </>
+              ))}
+            </p>
+          )}
+          <div class="seconds">
+            {front.seconds.map((story) => <Story story={story} size="second" />)}
+          </div>
+          <div class="thirds">
+            {front.thirds.map((story) => <Story story={story} />)}
+          </div>
+        </div>
+
+        {front.topics.length > 0 && (
+          <aside class="talking" aria-labelledby="talking-head">
+            <h2 class="talking-head" id="talking-head">
+              <a href="/talking-points/">Talking points</a>
+            </h2>
+            <p class="talking-note">What the most papers ran. Tap a paper to read its take.</p>
+            {front.topics.map((topic) => <Topic topic={topic} />)}
+          </aside>
+        )}
+      </div>
+
+      <section class="stand" aria-labelledby="stand-head">
+        <h2 class="band-head" id="stand-head">Today&rsquo;s papers</h2>
+        <ul class="stand-list">
+          {PAPERS.map((paper) => {
+            const report = reportFor(paper.id);
+            return (
+              <li class="stand-paper">
+                <a class="stand-name" href={`/paper/${paper.id}/`}>{paper.name}</a>
+                <span class="stand-count">
+                  {report?.stories ? `${report.stories} stories` : 'No stories today'}
+                </span>
+                <a class="stand-epaper" href={paper.epaper} target="_blank" rel="noopener">E-paper</a>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+
+      <section class="leader" aria-labelledby="leader-head">
+        <h2 class="band-head" id="leader-head"><a href="/section/opinion/">Editorials &amp; columns</a></h2>
+        <div class="leader-columns">
+          {front.opinion.map((story) => <Story story={story} showDesk={true} />)}
+        </div>
+      </section>
+
+      <section class="pink" aria-labelledby="pink-head">
+        <div class="pink-inner">
+          <h2 class="pink-head" id="pink-head">The pink pages</h2>
+          <div class="pink-grid">
+            <div class="pink-business">
+              <h3 class="pink-desk"><a href="/section/business/">Business</a></h3>
+              <div class="pink-columns">
+                {front.business.map((story) => <Story story={story} />)}
+              </div>
+            </div>
+            <div class="pink-markets">
+              <h3 class="pink-desk"><a href="/section/markets/">Markets</a></h3>
+              {front.markets.map((story) => <Story story={story} />)}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="desks">
+        <Column title="Nation" href="/section/nation/" stories={front.nation} />
+        <Column title="World" href="/section/world/" stories={front.world} />
+        <Column title="Technology" href="/section/tech/" stories={front.tech} />
+        <Column title="Sport" href="/section/sport/" stories={front.sport} />
+      </div>
+    </>
+  )}
+</Sheet>

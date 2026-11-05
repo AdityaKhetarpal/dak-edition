@@ -1,0 +1,21 @@
+---
+import { paperOf, storyTime } from '../lib/edition.js';
+
+const { story, size = 'small', showPaper = true, showDesk = false } = Astro.props;
+const Heading = size === 'lead' ? 'h2' : 'h3';
+const paper = paperOf(story);
+const time = storyTime(story.publishedAt);
+---
+
+<article class={`story story-${size}`}>
+  <Heading class="headline">
+    <a href={story.url} target="_blank" rel="noopener">{story.title}</a>
+  </Heading>
+  {story.summary && <p class="summary">{story.summary}</p>}
+  <p class="credit">
+    {showPaper && <a class="credit-paper" href={`/paper/${paper.id}/`}>{paper.name.replace(/^The /, '')}</a>}
+    {showDesk && <span>{story.desk}</span>}
+    {story.author && <span>{story.author}</span>}
+    {time && <span>{time}</span>}
+  </p>
+</article>

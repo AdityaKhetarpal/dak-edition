@@ -99,7 +99,7 @@
   {
    "slug": "adani-ports",
    "name": "Adani Ports",
-   "lead": "1b6453dff9",
+   "lead": "50e93d3a40",
    "papers": [
     "telegraph",
     "businessline",
@@ -124,9 +124,9 @@
    ]
   },
   {
-   "slug": "cristiano-ronaldo",
-   "name": "Cristiano Ronaldo",
-   "lead": "3851b23034",
+   "slug": "cristiano-ronaldo-retires",
+   "name": "Cristiano Ronaldo retires",
+   "lead": "6038e63e6c",
    "papers": [
     "hindustan-times",
     "times-of-india",
@@ -165,7 +165,7 @@
   {
    "slug": "asian-champions-trophy",
    "name": "Asian Champions Trophy",
-   "lead": "c610cdbca0",
+   "lead": "886991ea50",
    "papers": [
     "hindustan-times",
     "indian-express",
@@ -215,8 +215,8 @@
    ]
   },
   {
-   "slug": "europe",
-   "name": "Europe",
+   "slug": "flights-in-europe",
+   "name": "Flights in Europe",
    "lead": "5b9c003f71",
    "papers": [
     "hindustan-times",
@@ -241,56 +241,9 @@
    ]
   },
   {
-   "slug": "q2-results-net",
-   "name": "Q2 results Net",
-   "lead": "2747e69c40",
-   "papers": [
-    "business-standard",
-    "financial-express",
-    "economic-times",
-    "businessline",
-    "times-of-india",
-    "mint"
-   ],
-   "stories": [
-    "1d6bb8d306",
-    "9e12407773",
-    "f1c4326648",
-    "f58246d7f0",
-    "478d64684e",
-    "b657a2c5eb",
-    "2720173de5",
-    "c9b095dd70",
-    "c35f5d7e91",
-    "974e736510",
-    "f565d2a508",
-    "61022d9445",
-    "85c0eecf0c",
-    "80c7ad0155",
-    "ab2b74a5bb",
-    "0c0e109735",
-    "f74525c2b5",
-    "c592b48639",
-    "5d26179da1",
-    "f04c549b63",
-    "cdf2784a36",
-    "878252a79d",
-    "500fb90ba8",
-    "d3c2b9e233",
-    "15ca997956",
-    "b127dbc132",
-    "47dc875050",
-    "9565b5dcbb",
-    "2747e69c40",
-    "991f37fdb7",
-    "41b181e39a",
-    "0795c50914"
-   ]
-  },
-  {
-   "slug": "trump",
-   "name": "Trump",
-   "lead": "7e5579e2dc",
+   "slug": "us-midterm",
+   "name": "US midterm",
+   "lead": "2923019038",
    "papers": [
     "financial-express",
     "business-standard",
@@ -312,8 +265,8 @@
    ]
   },
   {
-   "slug": "2-009",
-   "name": "2,009",
+   "slug": "sensex",
+   "name": "Sensex",
    "lead": "58b59f8c4c",
    "papers": [
     "financial-express",
@@ -333,6 +286,106 @@
     "d784d29247",
     "8ab2178019",
     "92a1f9ae65"
+   ]
+  },
+  {
+   "slug": "blinkit-ambulance",
+   "name": "Blinkit Ambulance",
+   "lead": "2bd36fe888",
+   "papers": [
+    "economic-times",
+    "business-standard",
+    "businessline",
+    "telegraph",
+    "financial-express",
+    "mint"
+   ],
+   "stories": [
+    "1468639824",
+    "ef9fd1edfa",
+    "62359667b1",
+    "0f3c554b95",
+    "7ba16fc149",
+    "fd36d81a34",
+    "ff56ce4284",
+    "2bd36fe888"
+   ]
+  },
+  {
+   "slug": "special-summary-revision",
+   "name": "Special Summary Revision",
+   "lead": "1ad1ff04b7",
+   "papers": [
+    "indian-express",
+    "business-standard",
+    "times-of-india",
+    "telegraph",
+    "hindustan-times"
+   ],
+   "stories": [
+    "1ad1ff04b7",
+    "2cbfcf9018",
+    "412873d6c8",
+    "115af31383",
+    "0c00c57e9b",
+    "4b14d3b9d3"
+   ]
+  },
+  {
+   "slug": "tata-sons-chairman",
+   "name": "Tata Sons Chairman",
+   "lead": "4cb26a3632",
+   "papers": [
+    "telegraph",
+    "economic-times",
+    "times-of-india",
+    "businessline",
+    "hindustan-times"
+   ],
+   "stories": [
+    "bf0fb64be8",
+    "0f53960b8d",
+    "f1455a6eab",
+    "4cb26a3632",
+    "f33ad7aeb5"
+   ]
+  },
+  {
+   "slug": "sharjeel-imam",
+   "name": "Sharjeel Imam",
+   "lead": "48a5f08943",
+   "papers": [
+    "telegraph",
+    "times-of-india",
+    "hindustan-times",
+    "deccan-herald",
+    "new-indian-express"
+   ],
+   "stories": [
+    "caf1873a68",
+    "d71cb79e55",
+    "48a5f08943",
+    "b824f30ff3",
+    "ebdf993129"
+   ]
+  },
+  {
+   "slug": "india-sri-lanka",
+   "name": "India-Sri Lanka",
+   "lead": "43b4343b4e",
+   "papers": [
+    "economic-times",
+    "times-of-india",
+    "indian-express",
+    "mint",
+    "the-hindu"
+   ],
+   "stories": [
+    "1dca6d4be4",
+    "4138961722",
+    "8e00bc8eb4",
+    "43b4343b4e",
+    "1f8ecabcd9"
    ]
   }
  ],

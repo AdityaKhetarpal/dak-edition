@@ -1,0 +1,30 @@
+---
+import Story from '../../components/Story.astro';
+import Sheet from '../../layouts/Sheet.astro';
+import { SECTIONS, dealByPaper, inSection, opinionStories } from '../../lib/edition.js';
+
+const MOST_PER_PAGE = 120;
+
+export function getStaticPaths() {
+  return SECTIONS.map((section) => ({ params: { id: section.id }, props: { section } }));
+}
+
+const { section } = Astro.props;
+const pool = section.id === 'opinion' ? opinionStories() : inSection(section.id);
+const stories = dealByPaper(pool, MOST_PER_PAGE);
+---
+
+<Sheet title={section.name} current={section.id}>
+  <div class={section.pink ? 'pink-page' : ''}>
+    <header class="page-head">
+      <h1>{section.name}</h1>
+      <p>{pool.length} stories today, taken from every paper in turn.</p>
+    </header>
+
+    {stories.length === 0 && <p class="press-note">Nothing in this section yet.</p>}
+
+    <div class="running-columns">
+      {stories.map((story) => <Story story={story} showDesk={section.id === 'opinion'} />)}
+    </div>
+  </div>
+</Sheet>

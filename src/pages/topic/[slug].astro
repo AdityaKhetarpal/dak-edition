@@ -1,0 +1,33 @@
+---
+import Story from '../../components/Story.astro';
+import Sheet from '../../layouts/Sheet.astro';
+import { PAPERS, edition, paperOf, storyById } from '../../lib/edition.js';
+
+export function getStaticPaths() {
+  return edition.topics.map((topic) => ({ params: { slug: topic.slug }, props: { topic } }));
+}
+
+const { topic } = Astro.props;
+const stories = topic.stories.map(storyById);
+const groups = PAPERS.map((paper) => ({
+  paper,
+  stories: stories.filter((story) => paperOf(story).id === paper.id),
+})).filter((group) => group.stories.length > 0);
+---
+
+<Sheet title={topic.name} current="topics">
+  <header class="page-head">
+    <p class="page-kicker"><a href="/talking-points/">Talking points</a></p>
+    <h1>{topic.name}</h1>
+    <p>{topic.papers.length} papers ran {stories.length} stories on this.</p>
+  </header>
+
+  <div class="paper-columns">
+    {groups.map((group) => (
+      <section class="coverage">
+        <h2 class="column-head"><a href={`/paper/${group.paper.id}/`}>{group.paper.name}</a></h2>
+        {group.stories.map((story) => <Story story={story} showPaper={false} showDesk={true} />)}
+      </section>
+    ))}
+  </div>
+</Sheet>
