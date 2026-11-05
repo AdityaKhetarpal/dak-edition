@@ -1,0 +1,52 @@
+import assert from 'node:assert/strict';
+import { test } from 'node:test';
+import { parseDate, parseFeed } from '../lib/feed.mjs';
+
+const RSS = `<?xml version="1.0"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<channel><title>Paper</title>
+<item>
+  <title><![CDATA[RBI keeps repo rate &amp; stance unchanged]]></title>
+  <link>https://example.com/business/rbi-repo?utm_source=rss</link>
+  <description><![CDATA[<p>The panel voted <b>5-1</b>.</p> The post RBI appeared first on Paper.]]></description>
+  <content:encoded><![CDATA[<p>SECRET FULL ARTICLE TEXT</p>]]></content:encoded>
+  <dc:creator>Asha Rao</dc:creator>
+  <pubDate>Thu, 05 Nov 2026 08:00:00 +0530</pubDate>
+</item>
+<item><title>No link here</title></item>
+</channel></rss>`;
+
+const ATOM = `<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Paper</title>
+<entry><title>Atom story</title><link rel="alternate" href="https://example.com/atom"/>
+<summary>Short.</summary><updated>2026-11-05T02:30:00Z</updated><author><name>Dev Sen</name></author></entry>
+</feed>`;
+
+test('reads an RSS item and cleans its text', () => {
+  const [item, ...rest] = parseFeed(RSS);
+  assert.equal(rest.length, 0, 'items with no link are dropped');
+  assert.equal(item.title, 'RBI keeps repo rate & stance unchanged');
+  assert.equal(item.summary, 'The panel voted 5-1 .');
+  assert.equal(item.author, 'Asha Rao');
+  assert.equal(item.publishedAt, '2026-11-05T02:30:00.000Z');
+});
+
+test('never picks up the full article text', () => {
+  assert.ok(!JSON.stringify(parseFeed(RSS)).includes('SECRET FULL ARTICLE TEXT'));
+});
+
+test('reads Atom', () => {
+  const [item] = parseFeed(ATOM);
+  assert.equal(item.url, 'https://example.com/atom');
+  assert.equal(item.author, 'Dev Sen');
+});
+
+test('rejects a page that is not a feed', () => {
+  assert.throws(() => parseFeed('<html><body>Blocked</body></html>'), /Not an RSS/);
+});
+
+test('a future date is held to the current time and a bad date is null', () => {
+  const now = new Date('2026-11-05T00:00:00Z');
+  assert.equal(parseDate('2027-01-01T00:00:00Z', now), now.toISOString());
+  assert.equal(parseDate('not a date', now), null);
+});

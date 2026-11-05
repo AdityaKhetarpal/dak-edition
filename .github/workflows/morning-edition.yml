@@ -1,0 +1,44 @@
+name: Morning edition
+
+on:
+  schedule:
+    # Cron times are UTC. GitHub often starts scheduled runs late, so these
+    # begin well ahead of 8:30 AM IST.
+    - cron: '35 2 * * *' # 8:05 AM IST
+    - cron: '52 2 * * *' # 8:22 AM IST, in case the first run is dropped
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: morning-edition
+  cancel-in-progress: false
+
+jobs:
+  file-edition:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Fetch the papers
+        env:
+          SKIP_IF_RECENT: ${{ github.event_name == 'schedule' }}
+        run: npm run file-edition
+      - name: Publish the edition
+        run: |
+          git add data/edition.json
+          if git diff --cached --quiet; then
+            echo "Nothing new to publish."
+            exit 0
+          fi
+          git config user.name "Aditya Khetarpal"
+          git config user.email "80028073+AdityaKhetarpal@users.noreply.github.com"
+          git commit -m "Edition of $(TZ=Asia/Kolkata date +%F)"
+          git pull --rebase origin main
+          git push origin HEAD:main

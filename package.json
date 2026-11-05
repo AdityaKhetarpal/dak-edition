@@ -1,0 +1,27 @@
+{
+  "name": "dak-edition",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Every morning's Indian newspapers, on one sheet.",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "file-edition": "node scripts/file-edition.mjs",
+    "probe": "node scripts/probe-sources.mjs",
+    "test": "node --test \"tests/*.test.mjs\""
+  },
+  "dependencies": {
+    "@fontsource-variable/grenze-gotisch": "^5.3.0",
+    "@fontsource-variable/newsreader": "^5.3.0",
+    "@fontsource/old-standard-tt": "^5.3.0",
+    "@fontsource/pirata-one": "^5.3.0",
+    "@fontsource/unifrakturcook": "^5.3.0",
+    "astro": "^7.4.6",
+    "fast-xml-parser": "^5.12.0"
+  }
+}

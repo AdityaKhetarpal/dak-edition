@@ -1,0 +1,29 @@
+name: Check sources
+
+# Run by hand to see which feeds and links work. Useful when a paper
+# moves a feed, or when trying out a new one.
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: Extra feed addresses to try, separated by spaces
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run probe
+        env:
+          PROBE_URLS: ${{ inputs.urls }}
