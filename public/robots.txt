@@ -1,2 +1,4 @@
 User-agent: *
+Allow: /rss.xml
+Allow: /rss/
 Disallow: /

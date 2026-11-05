@@ -3,10 +3,27 @@
 // Every feed has a `section`. Use "top" for a mixed feed: its stories are
 // sorted into sections by their URL (see lib/stories.mjs).
 
-// A few papers refuse automated requests for their own feeds. Their headlines
-// come from Google News search instead, one search per section of the paper.
+// A few papers refuse automated requests for their own feeds, and some don't
+// have one for every section. Those sections are built from two public news
+// indexes. Google News is the freshest, and Bing News adds summaries and direct
+// article links. Stories found in both are merged in lib/stories.mjs.
 const viaGoogleNews = (path, days = 1) =>
   `https://news.google.com/rss/search?q=site:${path}+when:${days}d&hl=en-IN&gl=IN&ceid=IN:en`;
+
+const BING_PAGES = 3;
+const BING_PAGE_SIZE = 12;
+
+const viaBingNews = (path, days, page) => {
+  // Bing's time filters: 7 means the past day, 8 means the past week.
+  const filter = encodeURIComponent(`interval="${days > 1 ? 8 : 7}"+sortbydate="1"`);
+  const first = page * BING_PAGE_SIZE + 1;
+  return `https://www.bing.com/news/search?q=site%3A${encodeURIComponent(path)}&format=rss&setmkt=en-IN&setlang=en-IN&qft=${filter}&first=${first}`;
+};
+
+const fromIndexes = (path, section, label, days = 1) => [
+  { url: viaGoogleNews(path, days), section, label },
+  ...Array.from({ length: BING_PAGES }, (_, page) => ({ url: viaBingNews(path, days, page), section, label })),
+];
 
 export const SECTIONS = [
   { id: 'nation', name: 'Nation' },
@@ -49,7 +66,7 @@ export const PAPERS = [
     id: 'indian-express',
     name: 'The Indian Express',
     sigil: 'IE',
-    headlinesVia: 'Google News',
+    headlinesVia: 'Google News and Bing News',
     domain: 'indianexpress.com',
     home: 'https://indianexpress.com/',
     epaper: 'https://epaper.indianexpress.com/',
@@ -60,13 +77,13 @@ export const PAPERS = [
       { label: 'Business', url: 'https://indianexpress.com/section/business/' },
     ],
     feeds: [
-      { url: viaGoogleNews('indianexpress.com/article/opinion', 2), section: 'opinion', label: 'Opinion' },
-      { url: viaGoogleNews('indianexpress.com/article/india'), section: 'nation', label: 'India' },
-      { url: viaGoogleNews('indianexpress.com/article/explained', 2), section: 'nation', label: 'Explained' },
-      { url: viaGoogleNews('indianexpress.com/article/world'), section: 'world', label: 'World' },
-      { url: viaGoogleNews('indianexpress.com/article/business'), section: 'business', label: 'Business' },
-      { url: viaGoogleNews('indianexpress.com/article/technology'), section: 'tech', label: 'Technology' },
-      { url: viaGoogleNews('indianexpress.com/article/sports'), section: 'sport', label: 'Sports' },
+      ...fromIndexes('indianexpress.com/article/opinion', 'opinion', 'Opinion', 2),
+      ...fromIndexes('indianexpress.com/article/india', 'nation', 'India'),
+      ...fromIndexes('indianexpress.com/article/explained', 'nation', 'Explained', 2),
+      ...fromIndexes('indianexpress.com/article/world', 'world', 'World'),
+      ...fromIndexes('indianexpress.com/article/business', 'business', 'Business'),
+      ...fromIndexes('indianexpress.com/article/technology', 'tech', 'Technology'),
+      ...fromIndexes('indianexpress.com/article/sports', 'sport', 'Sports'),
     ],
   },
   {
@@ -170,7 +187,7 @@ export const PAPERS = [
     id: 'business-standard',
     name: 'Business Standard',
     sigil: 'BS',
-    headlinesVia: 'Google News',
+    headlinesVia: 'Google News and Bing News',
     domain: 'business-standard.com',
     home: 'https://www.business-standard.com/',
     epaper: 'https://epaper.business-standard.com/',
@@ -181,19 +198,19 @@ export const PAPERS = [
       { label: 'Companies', url: 'https://www.business-standard.com/companies' },
     ],
     feeds: [
-      { url: viaGoogleNews('business-standard.com/opinion', 2), section: 'opinion', label: 'Opinion' },
-      { url: viaGoogleNews('business-standard.com/economy'), section: 'business', label: 'Economy' },
-      { url: viaGoogleNews('business-standard.com/companies'), section: 'business', label: 'Companies' },
-      { url: viaGoogleNews('business-standard.com/markets'), section: 'markets', label: 'Markets' },
-      { url: viaGoogleNews('business-standard.com/india-news'), section: 'nation', label: 'India' },
-      { url: viaGoogleNews('business-standard.com/world-news'), section: 'world', label: 'World' },
+      ...fromIndexes('business-standard.com/opinion', 'opinion', 'Opinion', 2),
+      ...fromIndexes('business-standard.com/economy', 'business', 'Economy'),
+      ...fromIndexes('business-standard.com/companies', 'business', 'Companies'),
+      ...fromIndexes('business-standard.com/markets', 'markets', 'Markets'),
+      ...fromIndexes('business-standard.com/india-news', 'nation', 'India'),
+      ...fromIndexes('business-standard.com/world-news', 'world', 'World'),
     ],
   },
   {
     id: 'financial-express',
     name: 'The Financial Express',
     sigil: 'FE',
-    headlinesVia: 'Google News',
+    headlinesVia: 'Google News and Bing News',
     domain: 'financialexpress.com',
     home: 'https://www.financialexpress.com/',
     epaper: 'https://epaper.financialexpress.com/',
@@ -204,10 +221,10 @@ export const PAPERS = [
       { label: 'Business', url: 'https://www.financialexpress.com/business/' },
     ],
     feeds: [
-      { url: viaGoogleNews('financialexpress.com/opinion', 2), section: 'opinion', label: 'Opinion' },
-      { url: viaGoogleNews('financialexpress.com/market'), section: 'markets', label: 'Markets' },
-      { url: viaGoogleNews('financialexpress.com/business'), section: 'business', label: 'Business' },
-      { url: viaGoogleNews('financialexpress.com/policy'), section: 'business', label: 'Policy' },
+      ...fromIndexes('financialexpress.com/opinion', 'opinion', 'Opinion', 2),
+      ...fromIndexes('financialexpress.com/market', 'markets', 'Markets'),
+      ...fromIndexes('financialexpress.com/business', 'business', 'Business'),
+      ...fromIndexes('financialexpress.com/policy', 'business', 'Policy'),
     ],
   },
   {
@@ -246,13 +263,17 @@ export const PAPERS = [
     ],
     feeds: [
       { url: 'https://www.deccanherald.com/feed', section: 'top', label: 'Latest' },
+      ...fromIndexes('deccanherald.com/opinion', 'opinion', 'Opinion', 3),
+      ...fromIndexes('deccanherald.com/india', 'nation', 'India'),
+      ...fromIndexes('deccanherald.com/world', 'world', 'World'),
+      ...fromIndexes('deccanherald.com/business', 'business', 'Business'),
     ],
   },
   {
     id: 'telegraph',
     name: 'The Telegraph',
     sigil: 'TT',
-    headlinesVia: 'Google News',
+    headlinesVia: 'Google News and Bing News',
     domain: 'telegraphindia.com',
     home: 'https://www.telegraphindia.com/',
     epaper: 'https://epaper.telegraphindia.com/',
@@ -263,10 +284,10 @@ export const PAPERS = [
       { label: 'Business', url: 'https://www.telegraphindia.com/business' },
     ],
     feeds: [
-      { url: viaGoogleNews('telegraphindia.com/opinion', 2), section: 'opinion', label: 'Opinion' },
-      { url: viaGoogleNews('telegraphindia.com/india'), section: 'nation', label: 'India' },
-      { url: viaGoogleNews('telegraphindia.com/world'), section: 'world', label: 'World' },
-      { url: viaGoogleNews('telegraphindia.com/business'), section: 'business', label: 'Business' },
+      ...fromIndexes('telegraphindia.com/opinion', 'opinion', 'Opinion', 2),
+      ...fromIndexes('telegraphindia.com/india', 'nation', 'India'),
+      ...fromIndexes('telegraphindia.com/world', 'world', 'World'),
+      ...fromIndexes('telegraphindia.com/business', 'business', 'Business'),
     ],
   },
   {
@@ -284,6 +305,10 @@ export const PAPERS = [
     ],
     feeds: [
       { url: 'https://publish.tribuneindia.com/feed/', section: 'top', label: 'Latest' },
+      ...fromIndexes('tribuneindia.com/news/editorials', 'opinion', 'Editorial', 3),
+      ...fromIndexes('tribuneindia.com/news/comment', 'opinion', 'Comment', 3),
+      ...fromIndexes('tribuneindia.com/news/india', 'nation', 'India'),
+      ...fromIndexes('tribuneindia.com/news/world', 'world', 'World'),
     ],
   },
   {
@@ -301,6 +326,10 @@ export const PAPERS = [
     ],
     feeds: [
       { url: 'https://www.newindianexpress.com/feed/', section: 'top', label: 'Latest' },
+      ...fromIndexes('newindianexpress.com/opinion', 'opinion', 'Opinion', 3),
+      ...fromIndexes('newindianexpress.com/india', 'nation', 'India'),
+      ...fromIndexes('newindianexpress.com/world', 'world', 'World'),
+      ...fromIndexes('newindianexpress.com/business', 'business', 'Business'),
     ],
   },
 ];

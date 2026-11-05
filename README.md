@@ -37,8 +37,15 @@ Everything lives in `config/papers.mjs`. To check a new feed, run the **Check so
 workflow from the Actions tab and paste the address in.
 
 The Indian Express, Business Standard, The Financial Express and The Telegraph refuse
-automated requests for their feeds, so their headlines come from Google News searches.
-Those stories have no summaries.
+automated requests for their feeds. Those papers, and the sections other papers have no
+feed for, are built from two public news indexes. Google News supplies the freshest
+headlines and Bing News adds summaries and direct links. A story with no match in Bing
+shows its headline alone and opens through Google News.
+
+## RSS feeds
+
+The site publishes its own feeds, rebuilt with each edition. `/feeds/` lists them all:
+one for the whole edition, one for talking points, and one for each section and paper.
 
 ## Running it locally
 

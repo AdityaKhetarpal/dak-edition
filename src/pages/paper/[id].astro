@@ -17,20 +17,21 @@ const pages = SECTIONS.map((section) => ({
 })).filter((page) => page.stories.length > 0);
 ---
 
-<Sheet title={paper.name} current={paper.id}>
+<Sheet title={paper.name} current={paper.id} feed={`/rss/paper/${paper.id}.xml`}>
   <header class="page-head paper-head">
     <h1>{paper.name}</h1>
     <p class="paper-links">
       <a class="paper-epaper" href={paper.epaper} target="_blank" rel="noopener">Open today&rsquo;s e-paper</a>
       <a href={paper.home} target="_blank" rel="noopener">Website</a>
+      <a href={`/rss/paper/${paper.id}.xml`}>RSS</a>
       {paper.desks.map((desk) => (
         <a href={desk.url} target="_blank" rel="noopener">{desk.label}</a>
       ))}
     </p>
     {paper.headlinesVia && (
       <p class="paper-note">
-        This paper closes its feed to automated readers, so these headlines come from {paper.headlinesVia},
-        without summaries.
+        This paper closes its feed to automated readers, so these headlines come from {paper.headlinesVia}.
+        Summaries appear where those indexes carry one.
       </p>
     )}
   </header>

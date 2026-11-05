@@ -66,3 +66,17 @@ test('a search result from another site is left out', () => {
   }], now);
   assert.deepEqual(stories.map((story) => story.title), ['livemint.com']);
 });
+
+test('the same story from both indexes becomes one, with a summary and a direct link', () => {
+  const stories = buildStories([
+    { paper: { id: 'ie', domain: 'indianexpress.com' }, feed: { section: 'nation', label: 'India' }, items: [
+      { ...item('https://news.google.com/rss/articles/abc?oc=5', 'Rupee holds steady'), source: 'https://indianexpress.com' },
+    ] },
+    { paper: { id: 'ie', domain: 'indianexpress.com' }, feed: { section: 'nation', label: 'India' }, items: [
+      { ...item('https://indianexpress.com/article/rupee/', 'Rupee holds steady!', 3), summary: 'Closed flat.', source: 'https://indianexpress.com/article/rupee/' },
+    ] },
+  ], now);
+  assert.equal(stories.length, 1);
+  assert.equal(stories[0].url, 'https://indianexpress.com/article/rupee/');
+  assert.equal(stories[0].summary, 'Closed flat.');
+});

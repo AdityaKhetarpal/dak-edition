@@ -8,7 +8,7 @@ import '@fontsource-variable/newsreader/opsz-italic.css';
 import '../styles/sheet.css';
 import { PAPERS, SECTIONS, clockTime, edition, longDate } from '../lib/edition.js';
 
-const { title, current } = Astro.props;
+const { title, current, feed } = Astro.props;
 
 const pageTitle = title ? `${title} | The Dak Edition` : 'The Dak Edition';
 const dateLine = longDate(edition.editionDate);
@@ -26,6 +26,8 @@ const storyCount = edition.stories.length.toLocaleString('en-IN');
     <meta name="robots" content="noindex" />
     <meta name="theme-color" content="#eae5d6" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="The Dak Edition" href="/rss.xml" />
+    {feed && <link rel="alternate" type="application/rss+xml" title={`${title} | The Dak Edition`} href={feed} />}
   </head>
   <body>
     <a class="skip" href="#sheet">Skip to the stories</a>
@@ -73,10 +75,11 @@ const storyCount = edition.stories.length.toLocaleString('en-IN');
 
     <footer class="colophon">
       <p>
-        Headlines and short summaries come from each paper&rsquo;s public feed, or from Google News for the
-        papers that close their feeds to automated readers. Stories open on the paper&rsquo;s own site, where
-        some need a subscription.
+        Headlines and short summaries come from each paper&rsquo;s public feed, or from Google News and Bing
+        News where a paper has no open feed. Stories open on the paper&rsquo;s own site, where some need a
+        subscription.
       </p>
+      <p><a href="/feeds/">Follow this paper in a feed reader</a></p>
       <p>A dak edition is the early run of a newspaper, sent out by post to readers far from the press.</p>
     </footer>
 

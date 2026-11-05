@@ -64,3 +64,22 @@ test('a news-index item loses its publisher suffix and fake summary', () => {
   assert.equal(item.summary, '');
   assert.equal(item.source, 'https://www.business-standard.com');
 });
+
+test('a Bing result gives the real article link and keeps its summary', () => {
+  const xml = `<rss version="2.0" xmlns:News="https://www.bing.com/news/search?q=x&amp;format=rss"><channel><item>
+    <title>Rupee holds steady</title>
+    <link>http://www.bing.com/news/apiclick.aspx?ref=FexRss&amp;aid=&amp;url=https%3a%2f%2findianexpress.com%2farticle%2fbusiness%2frupee-1%2f&amp;c=123&amp;mkt=en-in</link>
+    <description>The currency closed flat on Thursday.</description>
+    <pubDate>Thu, 05 Nov 2026 10:00:00 GMT</pubDate>
+    <News:Source>The Indian Express</News:Source>
+  </item></channel></rss>`;
+  const [item] = parseFeed(xml);
+  assert.equal(item.url, 'https://indianexpress.com/article/business/rupee-1/');
+  assert.equal(item.source, 'https://indianexpress.com/article/business/rupee-1/');
+  assert.equal(item.summary, 'The currency closed flat on Thursday.');
+});
+
+test('entities in a link are decoded', () => {
+  const xml = `<rss version="2.0"><channel><item><title>A story</title><link>https://example.com/a?x=1&amp;y=2</link></item></channel></rss>`;
+  assert.equal(parseFeed(xml)[0].url, 'https://example.com/a?x=1&y=2');
+});

@@ -14,7 +14,7 @@ const pool = section.id === 'opinion' ? opinionStories() : inSection(section.id)
 const stories = dealByPaper(pool, MOST_PER_PAGE);
 ---
 
-<Sheet title={section.name} current={section.id}>
+<Sheet title={section.name} current={section.id} feed={`/rss/section/${section.id}.xml`}>
   <div class={section.pink ? 'pink-page' : ''}>
     <header class="page-head">
       <h1>{section.name}</h1>

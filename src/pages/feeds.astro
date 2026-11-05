@@ -1,0 +1,46 @@
+---
+import Sheet from '../layouts/Sheet.astro';
+import { PAPERS, SECTIONS } from '../lib/edition.js';
+
+const site = Astro.site;
+const groups = [
+  {
+    name: 'The whole paper',
+    feeds: [
+      { label: "Today's edition", path: '/rss.xml' },
+      { label: 'Talking points', path: '/rss/talking-points.xml' },
+    ],
+  },
+  {
+    name: 'By section',
+    feeds: SECTIONS.map((section) => ({ label: section.name, path: `/rss/section/${section.id}.xml` })),
+  },
+  {
+    name: 'By newspaper',
+    feeds: PAPERS.map((paper) => ({ label: paper.name, path: `/rss/paper/${paper.id}.xml` })),
+  },
+];
+---
+
+<Sheet title="RSS feeds">
+  <header class="page-head">
+    <h1>RSS feeds</h1>
+    <p>Paste any of these links into a feed reader such as Feedly. They refresh with each morning&rsquo;s edition.</p>
+  </header>
+
+  <div class="feed-list">
+    {groups.map((group) => (
+      <section>
+        <h2 class="column-head">{group.name}</h2>
+        <ul>
+          {group.feeds.map((feed) => (
+            <li>
+              <span>{feed.label}</span>
+              <a href={feed.path}>{new URL(feed.path, site).pathname}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</Sheet>

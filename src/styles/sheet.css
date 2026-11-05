@@ -471,6 +471,17 @@ nav a[aria-current='page'] { color: var(--red); }
 .press-note h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.08; margin-bottom: 8px; }
 .press-note a { text-decoration: underline; }
 
+.feed-list { max-width: 44rem; margin: 18px auto 0; }
+.feed-list h2 { margin-top: 20px; }
+.feed-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+.feed-list a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
 /* Colophon */
 
 .colophon {
@@ -486,6 +497,7 @@ nav a[aria-current='page'] { color: var(--red); }
   color: var(--ink-soft);
   text-align: center;
 }
+.colophon a { text-decoration: underline; text-underline-offset: 2px; }
 .colophon::before {
   content: '';
   display: block;
