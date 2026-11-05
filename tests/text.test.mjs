@@ -23,5 +23,6 @@ test('long summaries are cut to the limit', () => {
 
 test('takes the label off an opinion headline', () => {
   assert.equal(cleanTitle('Opinion: Why the rupee matters'), 'Why the rupee matters');
+  assert.equal(cleanTitle('Editorial. Green gridlock'), 'Green gridlock');
   assert.equal(cleanTitle('Exclusive: The inside story'), 'Exclusive: The inside story');
 });

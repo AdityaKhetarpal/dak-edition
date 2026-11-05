@@ -56,3 +56,13 @@ test('one headline under two URLs in a paper appears once', () => {
   ] }], now);
   assert.equal(stories.length, 1);
 });
+
+test('a search result from another site is left out', () => {
+  const found = (source) => ({ ...item(`https://news.google.com/${source}`, source), source: `https://www.${source}` });
+  const stories = buildStories([{
+    paper: { id: 'mint', domain: 'livemint.com' },
+    feed: { section: 'nation', label: 'India' },
+    items: [found('livemint.com'), found('example.com')],
+  }], now);
+  assert.deepEqual(stories.map((story) => story.title), ['livemint.com']);
+});

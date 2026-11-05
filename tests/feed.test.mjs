@@ -50,3 +50,17 @@ test('a future date is held to the current time and a bad date is null', () => {
   assert.equal(parseDate('2027-01-01T00:00:00Z', now), now.toISOString());
   assert.equal(parseDate('not a date', now), null);
 });
+
+test('a news-index item loses its publisher suffix and fake summary', () => {
+  const xml = `<rss version="2.0"><channel><item>
+    <title>Budget talks begin - Business Standard</title>
+    <link>https://news.google.com/rss/articles/abc?oc=5</link>
+    <description>&lt;a href="https://news.google.com/x"&gt;Budget talks begin&lt;/a&gt;&amp;nbsp;&lt;font&gt;Business Standard&lt;/font&gt;</description>
+    <source url="https://www.business-standard.com">Business Standard</source>
+    <pubDate>Thu, 05 Nov 2026 10:00:00 GMT</pubDate>
+  </item></channel></rss>`;
+  const [item] = parseFeed(xml);
+  assert.equal(item.title, 'Budget talks begin');
+  assert.equal(item.summary, '');
+  assert.equal(item.source, 'https://www.business-standard.com');
+});

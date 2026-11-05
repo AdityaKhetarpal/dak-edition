@@ -3,6 +3,11 @@
 // Every feed has a `section`. Use "top" for a mixed feed: its stories are
 // sorted into sections by their URL (see lib/stories.mjs).
 
+// A few papers refuse automated requests for their own feeds. Their headlines
+// come from Google News search instead, one search per section of the paper.
+const viaGoogleNews = (path, days = 1) =>
+  `https://news.google.com/rss/search?q=site:${path}+when:${days}d&hl=en-IN&gl=IN&ceid=IN:en`;
+
 export const SECTIONS = [
   { id: 'nation', name: 'Nation' },
   { id: 'world', name: 'World' },
@@ -33,6 +38,7 @@ export const PAPERS = [
       { url: 'https://www.livemint.com/rss/markets', section: 'markets', label: 'Markets' },
       { url: 'https://www.livemint.com/rss/companies', section: 'business', label: 'Companies' },
       { url: 'https://www.livemint.com/rss/money', section: 'business', label: 'Money' },
+      { url: 'https://www.livemint.com/rss/economy', section: 'business', label: 'Economy' },
       { url: 'https://www.livemint.com/rss/industry', section: 'business', label: 'Industry' },
       { url: 'https://www.livemint.com/rss/politics', section: 'nation', label: 'Politics' },
       { url: 'https://www.livemint.com/rss/technology', section: 'tech', label: 'Technology' },
@@ -43,6 +49,7 @@ export const PAPERS = [
     id: 'indian-express',
     name: 'The Indian Express',
     sigil: 'IE',
+    headlinesVia: 'Google News',
     domain: 'indianexpress.com',
     home: 'https://indianexpress.com/',
     epaper: 'https://epaper.indianexpress.com/',
@@ -53,15 +60,13 @@ export const PAPERS = [
       { label: 'Business', url: 'https://indianexpress.com/section/business/' },
     ],
     feeds: [
-      { url: 'https://indianexpress.com/feed/', section: 'top', label: 'Latest' },
-      { url: 'https://indianexpress.com/section/india/feed/', section: 'nation', label: 'India' },
-      { url: 'https://indianexpress.com/section/world/feed/', section: 'world', label: 'World' },
-      { url: 'https://indianexpress.com/section/business/feed/', section: 'business', label: 'Business' },
-      { url: 'https://indianexpress.com/section/opinion/editorials/feed/', section: 'opinion', label: 'Editorial' },
-      { url: 'https://indianexpress.com/section/opinion/columns/feed/', section: 'opinion', label: 'Column' },
-      { url: 'https://indianexpress.com/section/explained/feed/', section: 'nation', label: 'Explained' },
-      { url: 'https://indianexpress.com/section/technology/feed/', section: 'tech', label: 'Technology' },
-      { url: 'https://indianexpress.com/section/sports/feed/', section: 'sport', label: 'Sports' },
+      { url: viaGoogleNews('indianexpress.com/article/opinion', 2), section: 'opinion', label: 'Opinion' },
+      { url: viaGoogleNews('indianexpress.com/article/india'), section: 'nation', label: 'India' },
+      { url: viaGoogleNews('indianexpress.com/article/explained', 2), section: 'nation', label: 'Explained' },
+      { url: viaGoogleNews('indianexpress.com/article/world'), section: 'world', label: 'World' },
+      { url: viaGoogleNews('indianexpress.com/article/business'), section: 'business', label: 'Business' },
+      { url: viaGoogleNews('indianexpress.com/article/technology'), section: 'tech', label: 'Technology' },
+      { url: viaGoogleNews('indianexpress.com/article/sports'), section: 'sport', label: 'Sports' },
     ],
   },
   {
@@ -133,8 +138,7 @@ export const PAPERS = [
       { url: 'https://timesofindia.indiatimes.com/rssfeeds/-2128936835.cms', section: 'nation', label: 'India' },
       { url: 'https://timesofindia.indiatimes.com/rssfeeds/296589292.cms', section: 'world', label: 'World' },
       { url: 'https://timesofindia.indiatimes.com/rssfeeds/1898055.cms', section: 'business', label: 'Business' },
-      { url: 'https://timesofindia.indiatimes.com/rssfeeds/784865811.cms', section: 'opinion', label: 'Opinion' },
-      { url: 'https://timesofindia.indiatimes.com/rssfeeds/66949542.cms', section: 'tech', label: 'Tech' },
+      { url: 'https://timesofindia.indiatimes.com/rssfeeds/-2128672765.cms', section: 'tech', label: 'Science' },
       { url: 'https://timesofindia.indiatimes.com/rssfeeds/4719148.cms', section: 'sport', label: 'Sports' },
     ],
   },
@@ -158,6 +162,7 @@ export const PAPERS = [
       { url: 'https://www.hindustantimes.com/feeds/rss/business/rssfeed.xml', section: 'business', label: 'Business' },
       { url: 'https://www.hindustantimes.com/feeds/rss/opinion/rssfeed.xml', section: 'opinion', label: 'Opinion' },
       { url: 'https://www.hindustantimes.com/feeds/rss/editorials/rssfeed.xml', section: 'opinion', label: 'Editorial' },
+      { url: 'https://www.hindustantimes.com/feeds/rss/technology/rssfeed.xml', section: 'tech', label: 'Technology' },
       { url: 'https://www.hindustantimes.com/feeds/rss/sports/rssfeed.xml', section: 'sport', label: 'Sports' },
     ],
   },
@@ -165,6 +170,7 @@ export const PAPERS = [
     id: 'business-standard',
     name: 'Business Standard',
     sigil: 'BS',
+    headlinesVia: 'Google News',
     domain: 'business-standard.com',
     home: 'https://www.business-standard.com/',
     epaper: 'https://epaper.business-standard.com/',
@@ -175,20 +181,19 @@ export const PAPERS = [
       { label: 'Companies', url: 'https://www.business-standard.com/companies' },
     ],
     feeds: [
-      { url: 'https://www.business-standard.com/rss/home_page_top_stories.rss', section: 'top', label: 'Top stories' },
-      { url: 'https://www.business-standard.com/rss/latest.rss', section: 'top', label: 'Latest' },
-      { url: 'https://www.business-standard.com/rss/economy-102.rss', section: 'business', label: 'Economy' },
-      { url: 'https://www.business-standard.com/rss/companies-101.rss', section: 'business', label: 'Companies' },
-      { url: 'https://www.business-standard.com/rss/finance-103.rss', section: 'business', label: 'Finance' },
-      { url: 'https://www.business-standard.com/rss/markets-106.rss', section: 'markets', label: 'Markets' },
-      { url: 'https://www.business-standard.com/rss/opinion-105.rss', section: 'opinion', label: 'Opinion' },
-      { url: 'https://www.business-standard.com/rss/technology-108.rss', section: 'tech', label: 'Technology' },
+      { url: viaGoogleNews('business-standard.com/opinion', 2), section: 'opinion', label: 'Opinion' },
+      { url: viaGoogleNews('business-standard.com/economy'), section: 'business', label: 'Economy' },
+      { url: viaGoogleNews('business-standard.com/companies'), section: 'business', label: 'Companies' },
+      { url: viaGoogleNews('business-standard.com/markets'), section: 'markets', label: 'Markets' },
+      { url: viaGoogleNews('business-standard.com/india-news'), section: 'nation', label: 'India' },
+      { url: viaGoogleNews('business-standard.com/world-news'), section: 'world', label: 'World' },
     ],
   },
   {
     id: 'financial-express',
     name: 'The Financial Express',
     sigil: 'FE',
+    headlinesVia: 'Google News',
     domain: 'financialexpress.com',
     home: 'https://www.financialexpress.com/',
     epaper: 'https://epaper.financialexpress.com/',
@@ -199,11 +204,31 @@ export const PAPERS = [
       { label: 'Business', url: 'https://www.financialexpress.com/business/' },
     ],
     feeds: [
-      { url: 'https://www.financialexpress.com/feed/', section: 'top', label: 'Latest' },
-      { url: 'https://www.financialexpress.com/opinion/feed/', section: 'opinion', label: 'Opinion' },
-      { url: 'https://www.financialexpress.com/market/feed/', section: 'markets', label: 'Markets' },
-      { url: 'https://www.financialexpress.com/business/feed/', section: 'business', label: 'Business' },
-      { url: 'https://www.financialexpress.com/policy/economy/feed/', section: 'business', label: 'Economy' },
+      { url: viaGoogleNews('financialexpress.com/opinion', 2), section: 'opinion', label: 'Opinion' },
+      { url: viaGoogleNews('financialexpress.com/market'), section: 'markets', label: 'Markets' },
+      { url: viaGoogleNews('financialexpress.com/business'), section: 'business', label: 'Business' },
+      { url: viaGoogleNews('financialexpress.com/policy'), section: 'business', label: 'Policy' },
+    ],
+  },
+  {
+    id: 'businessline',
+    name: 'The Hindu BusinessLine',
+    sigil: 'BL',
+    domain: 'thehindubusinessline.com',
+    home: 'https://www.thehindubusinessline.com/',
+    epaper: 'https://epaper.thehindubusinessline.com/',
+    desks: [
+      { label: 'Editorial', url: 'https://www.thehindubusinessline.com/opinion/editorial/' },
+      { label: 'Opinion', url: 'https://www.thehindubusinessline.com/opinion/' },
+      { label: 'Markets', url: 'https://www.thehindubusinessline.com/markets/' },
+      { label: 'Economy', url: 'https://www.thehindubusinessline.com/economy/' },
+    ],
+    feeds: [
+      { url: 'https://www.thehindubusinessline.com/opinion/editorial/feeder/default.rss', section: 'opinion', label: 'Editorial' },
+      { url: 'https://www.thehindubusinessline.com/opinion/feeder/default.rss', section: 'opinion', label: 'Opinion' },
+      { url: 'https://www.thehindubusinessline.com/markets/feeder/default.rss', section: 'markets', label: 'Markets' },
+      { url: 'https://www.thehindubusinessline.com/economy/feeder/default.rss', section: 'business', label: 'Economy' },
+      { url: 'https://www.thehindubusinessline.com/companies/feeder/default.rss', section: 'business', label: 'Companies' },
     ],
   },
   {
@@ -220,13 +245,14 @@ export const PAPERS = [
       { label: 'World', url: 'https://www.deccanherald.com/world' },
     ],
     feeds: [
-      { url: 'https://prod-qt-images.s3.amazonaws.com/production/deccanherald/feed.xml', section: 'top', label: 'Latest' },
+      { url: 'https://www.deccanherald.com/feed', section: 'top', label: 'Latest' },
     ],
   },
   {
     id: 'telegraph',
     name: 'The Telegraph',
     sigil: 'TT',
+    headlinesVia: 'Google News',
     domain: 'telegraphindia.com',
     home: 'https://www.telegraphindia.com/',
     epaper: 'https://epaper.telegraphindia.com/',
@@ -237,7 +263,10 @@ export const PAPERS = [
       { label: 'Business', url: 'https://www.telegraphindia.com/business' },
     ],
     feeds: [
-      { url: 'https://www.telegraphindia.com/feeds/rss.jsp?id=3', section: 'top', label: 'Latest' },
+      { url: viaGoogleNews('telegraphindia.com/opinion', 2), section: 'opinion', label: 'Opinion' },
+      { url: viaGoogleNews('telegraphindia.com/india'), section: 'nation', label: 'India' },
+      { url: viaGoogleNews('telegraphindia.com/world'), section: 'world', label: 'World' },
+      { url: viaGoogleNews('telegraphindia.com/business'), section: 'business', label: 'Business' },
     ],
   },
   {
@@ -249,12 +278,12 @@ export const PAPERS = [
     epaper: 'https://epaper.tribuneindia.com/',
     desks: [
       { label: 'Opinion', url: 'https://www.tribuneindia.com/opinion/' },
-      { label: 'Nation', url: 'https://www.tribuneindia.com/news/nation/' },
+      { label: 'India', url: 'https://www.tribuneindia.com/news/india/' },
       { label: 'World', url: 'https://www.tribuneindia.com/news/world/' },
       { label: 'Business', url: 'https://www.tribuneindia.com/news/business/' },
     ],
     feeds: [
-      { url: 'https://www.tribuneindia.com/rss/feed?catId=42', section: 'top', label: 'Latest' },
+      { url: 'https://publish.tribuneindia.com/feed/', section: 'top', label: 'Latest' },
     ],
   },
   {
@@ -265,8 +294,8 @@ export const PAPERS = [
     home: 'https://www.newindianexpress.com/',
     epaper: 'https://epaper.newindianexpress.com/',
     desks: [
-      { label: 'Opinions', url: 'https://www.newindianexpress.com/opinions' },
-      { label: 'Nation', url: 'https://www.newindianexpress.com/nation' },
+      { label: 'Opinion', url: 'https://www.newindianexpress.com/opinion' },
+      { label: 'India', url: 'https://www.newindianexpress.com/india' },
       { label: 'World', url: 'https://www.newindianexpress.com/world' },
       { label: 'Business', url: 'https://www.newindianexpress.com/business' },
     ],
