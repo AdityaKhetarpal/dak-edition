@@ -1,11 +1,11 @@
 {
  "editionDate": "2026-11-05",
  "issue": 1,
- "filedAt": "2026-11-05T17:24:25.092Z",
+ "filedAt": "2026-11-05T17:32:17.899Z",
  "papers": [
   {
    "id": "mint",
-   "stories": 237,
+   "stories": 236,
    "feedsRead": 10,
    "feedsTotal": 10,
    "failed": []
@@ -26,35 +26,35 @@
   },
   {
    "id": "the-hindu",
-   "stories": 188,
+   "stories": 186,
    "feedsRead": 10,
    "feedsTotal": 10,
    "failed": []
   },
   {
    "id": "times-of-india",
-   "stories": 103,
+   "stories": 104,
    "feedsRead": 6,
    "feedsTotal": 6,
    "failed": []
   },
   {
    "id": "hindustan-times",
-   "stories": 147,
+   "stories": 148,
    "feedsRead": 8,
    "feedsTotal": 8,
    "failed": []
   },
   {
    "id": "business-standard",
-   "stories": 135,
+   "stories": 133,
    "feedsRead": 6,
    "feedsTotal": 6,
    "failed": []
   },
   {
    "id": "financial-express",
-   "stories": 91,
+   "stories": 90,
    "feedsRead": 4,
    "feedsTotal": 4,
    "failed": []
@@ -112,7 +112,7 @@
    ],
    "stories": [
     "1b6453dff9",
-    "658c5ab318",
+    "81984aa265",
     "192a10222f",
     "0dc6e6d504",
     "9a704050a2",
@@ -391,6 +391,248 @@
  ],
  "stories": [
   {
+   "id": "0e9de254b9",
+   "paper": "mint",
+   "section": "sport",
+   "desk": "Sports",
+   "title": "Who is Rinky Hijikata? World No 83 qualifier ends Novak Djokovic’s ATP Finals hopes with upset win at Paris Masters",
+   "summary": "Rinky Hijikata defeated the record seven-time Paris champion for the first time in three head-to-head meetings and advanced to the third round. It was his first win against the 24-time major winner, Novak Djokovic.",
+   "author": "",
+   "url": "https://www.livemint.com/sports/news/rinky-hijikata-world-no-83-qualifier-ends-novak-djokovic-s-atp-finals-hopes-with-upset-win-at-paris-masters-11793875023995.html",
+   "publishedAt": "2026-11-05T17:31:59.000Z"
+  },
+  {
+   "id": "2a1972d60c",
+   "paper": "the-hindu",
+   "section": "nation",
+   "desk": "National",
+   "title": "Cabinet approves 30-year lease of four acres in High Grounds to Bangalore Turf Club",
+   "summary": "",
+   "author": "",
+   "url": "https://www.thehindu.com/news/national/karnataka/cabinet-approves-30-year-lease-of-four-acres-in-high-grounds-to-bangalore-turf-club/article71671266.ece",
+   "publishedAt": "2026-11-05T17:28:03.000Z"
+  },
+  {
+   "id": "3a034ccb11",
+   "paper": "times-of-india",
+   "section": "world",
+   "desk": "World",
+   "title": "Montana Supreme Court awards husband $955,000 home despite property being in wife's name",
+   "summary": "In a contentious property dispute in Montana, a couple found themselves at odds after their marriage dissolved. The husband poured approximately $955,000 into their shared home, though it was registered solely in the wife's name.",
+   "author": "TOI World Desk",
+   "url": "https://timesofindia.indiatimes.com/world/us/a-montana-couple-put-a-home-in-the-wifes-name-before-marrying-in-2023-though-the-husband-funded-nearly-955000-in-purchase-and-improvements-after-their-split-the-state-supreme-court-upheld-awarding-him-the-property/articleshow/135576751.cms",
+   "publishedAt": "2026-11-05T17:28:00.000Z"
+  },
+  {
+   "id": "40069f7c8a",
+   "paper": "times-of-india",
+   "section": "world",
+   "desk": "World",
+   "title": "Backyard Railway Village: Chicago family turns garden into miniature town; hobby draws visitors",
+   "summary": "Over two decades, a Chicago family's backyard has transformed into a vibrant miniature railway town. What began as a modest garden endeavor blossomed into a captivating landscape filled with elaborate buildings and model trains.",
+   "author": "TOI World Desk",
+   "url": "https://timesofindia.indiatimes.com/world/us/a-chicago-family-replaced-a-tiny-patch-of-backyard-grass-with-model-railway-tracks-in-the-late-1990s-more-than-20-years-later-the-miniature-village-fills-the-entire-yard-and-can-run-seven-trains-at-once/articleshow/135522708.cms",
+   "publishedAt": "2026-11-05T17:27:55.000Z"
+  },
+  {
+   "id": "329bf4b136",
+   "paper": "the-hindu",
+   "section": "nation",
+   "desk": "National",
+   "title": "Hyderabad’s water tanker bookings jump from 87,000 in October 2025 to 2.2 lakh in October 2026",
+   "summary": "",
+   "author": "",
+   "url": "https://www.thehindu.com/news/cities/Hyderabad/hyderabads-water-tanker-bookings-jump-from-87000-in-october-2025-to-22-lakh-in-october-2026/article71670893.ece",
+   "publishedAt": "2026-11-05T17:27:47.000Z"
+  },
+  {
+   "id": "e9aa8d9545",
+   "paper": "the-hindu",
+   "section": "business",
+   "desk": "Business",
+   "title": "Repeat gold borrowing rises among low-risk customers, repayment stress persists: CIBIL",
+   "summary": "Borrowers who had missed more than one payment in the preceding six months were three times as likely to become delinquent.",
+   "author": "",
+   "url": "https://www.thehindu.com/business/repeat-gold-borrowing-rises-among-low-risk-customers-repayment-stress-persists-cibil/article71670923.ece",
+   "publishedAt": "2026-11-05T17:27:44.000Z"
+  },
+  {
+   "id": "07dbef23b8",
+   "paper": "mint",
+   "section": "business",
+   "desk": "Industry",
+   "title": "RBI proposes ₹100-crore priority sector lending limit for agri infra, food processing",
+   "summary": "Under the draft rules, loans for agriculture infrastructure will be eligible for PSL classification subject to an aggregate sanctioned limit of ₹100 crore per borrower across the banking system.",
+   "author": "",
+   "url": "https://www.livemint.com/industry/agriculture/rbi-proposes-100-crore-priority-sector-lending-limit-for-agri-infra-loans-11793892601351.html",
+   "publishedAt": "2026-11-05T17:27:24.000Z"
+  },
+  {
+   "id": "9c3526a3b2",
+   "paper": "tribune",
+   "section": "nation",
+   "desk": "Latest",
+   "title": "Sergio Gor extends Diwali wishes following celebrations at US Embassy",
+   "summary": "Highlighting the celebrations of the festival of lights at the Embassy, Gor extended Diwali wishes in a post on X.",
+   "author": "ANI",
+   "url": "https://www.tribuneindia.com/news/cultural-celebration/sergio-gor-extends-diwali-wishes-following-celebrations-at-us-embassy",
+   "publishedAt": "2026-11-05T17:27:16.000Z"
+  },
+  {
+   "id": "6a49b3d730",
+   "paper": "the-hindu",
+   "section": "nation",
+   "desk": "National",
+   "title": "Farmers cast their votes till 8 p.m in Kakinada, boats deployed for voters in Konaseema",
+   "summary": "Hit by cyclone Arnab and Murasu consecutively, farmers who attended their fields to save their crops returned to polling stations at the eleventh hour to cast their vote in Kakinada district; Boats were deployed for voters due to…",
+   "author": "",
+   "url": "https://www.thehindu.com/news/national/andhra-pradesh/farmers-cast-their-votes-till-8-pm-in-kakinada-boats-deployed-for-voters-in-konaseema/article71670757.ece",
+   "publishedAt": "2026-11-05T17:27:08.000Z"
+  },
+  {
+   "id": "d9db59360b",
+   "paper": "tribune",
+   "section": "nation",
+   "desk": "Latest",
+   "title": "“Chosen humanity over war”: Melania Trump hosts Russian, Ukrainian envoys at White House after mediating Oleshky ceasefire",
+   "summary": "Addressing a delegation that included Ukrainian Ombudsman Dmytro Lubinets, Russian counterpart Yana Lantratova, Russian Special Envoy Kirill Dmitriev, and Ukrainian negotiator David Arakhamia, the First Lady praised both nations…",
+   "author": "ANI",
+   "url": "https://www.tribuneindia.com/news/ceasefire/chosen-humanity-over-war-melania-trump-hosts-russian-ukrainian-envoys-at-white-house-after-mediating-oleshky-ceasefire",
+   "publishedAt": "2026-11-05T17:27:06.000Z"
+  },
+  {
+   "id": "06b2dfdba8",
+   "paper": "the-hindu",
+   "section": "nation",
+   "desk": "National",
+   "title": "Green gram procurement centre opens in Santhemarahalli in Chamarajanagar",
+   "summary": "",
+   "author": "",
+   "url": "https://www.thehindu.com/news/national/karnataka/green-gram-procurement-centre-opens-in-santhemarahalli-in-chamarajanagar/article71670639.ece",
+   "publishedAt": "2026-11-05T17:26:47.000Z"
+  },
+  {
+   "id": "445790a3ff",
+   "paper": "the-hindu",
+   "section": "nation",
+   "desk": "National",
+   "title": "INS Sahyadri reaches Japan for multilateral naval exercise MALABAR 2026",
+   "summary": "The harbour phase will involve professional interactions and coordinated planning, while the subsequent sea phase will see INS Sahyadri operate alongside participating naval units from the U.S., Australia and Japan",
+   "author": "",
+   "url": "https://www.thehindu.com/news/national/ins-sahyadri-reaches-japan-for-multilateral-naval-exercise-malabar-2026/article71670198.ece",
+   "publishedAt": "2026-11-05T17:26:19.000Z"
+  },
+  {
+   "id": "11eec4639c",
+   "paper": "the-hindu",
+   "section": "nation",
+   "desk": "National",
+   "title": "BMRCL signs ₹65-crore MoU with InMobi for Ibbaluru Metro Station naming rights",
+   "summary": "",
+   "author": "",
+   "url": "https://www.thehindu.com/news/national/karnataka/bmrcl-signs-65-crore-mou-with-inmobi-for-ibbaluru-metro-station-naming-rights/article71670902.ece",
+   "publishedAt": "2026-11-05T17:26:16.000Z"
+  },
+  {
+   "id": "f699b3a6f7",
+   "paper": "the-hindu",
+   "section": "nation",
+   "desk": "Latest",
+   "title": "FSSAI inspects over 100 shops to check quality of sweets ahead of Deepavali in Coimbatore; imposes fines on two",
+   "summary": "",
+   "author": "",
+   "url": "https://www.thehindu.com/news/cities/Coimbatore/fssai-inspects-over-100-shops-to-check-quality-of-sweets-ahead-of-deepavali-in-coimbatore-imposes-fines-on-two/article71671047.ece",
+   "publishedAt": "2026-11-05T17:26:14.000Z"
+  },
+  {
+   "id": "62d2fc8d7e",
+   "paper": "the-hindu",
+   "section": "business",
+   "desk": "Business",
+   "title": "Mehli Mistry questions Noel Tata’s citizenship, tax residency status",
+   "summary": "Mehli Mistry said Noel Tata is an Irish citizen and a holder of a UAE Golden Visa",
+   "author": "",
+   "url": "https://www.thehindu.com/business/Industry/mehli-mistry-questions-noel-tatas-citizenship-tax-residency-status/article71671413.ece",
+   "publishedAt": "2026-11-05T17:26:09.000Z"
+  },
+  {
+   "id": "8f47b20c6f",
+   "paper": "the-hindu",
+   "section": "nation",
+   "desk": "National",
+   "title": "CM directs officials to begin Kaleshwaram barrage restoration works in December",
+   "summary": "Final approvals to be secured by month-end; ₹4,193 crore estimated for repairs and restoration",
+   "author": "",
+   "url": "https://www.thehindu.com/news/national/telangana/cm-directs-officials-to-begin-kaleshwaram-barrage-restoration-works-in-december/article71670959.ece",
+   "publishedAt": "2026-11-05T17:25:38.000Z"
+  },
+  {
+   "id": "77576754bd",
+   "paper": "the-hindu",
+   "section": "nation",
+   "desk": "National",
+   "title": "Farmers stage blockade in Mysuru over bus fare hike",
+   "summary": "",
+   "author": "",
+   "url": "https://www.thehindu.com/news/national/karnataka/farmers-stage-blockade-in-mysuru-over-bus-fare-hike/article71670375.ece",
+   "publishedAt": "2026-11-05T17:25:34.000Z"
+  },
+  {
+   "id": "858cd1d521",
+   "paper": "the-hindu",
+   "section": "nation",
+   "desk": "National",
+   "title": "ECI issues fresh work allocation order; brings back oversight on IT head",
+   "summary": "As per the current order, dated October 4, IT Head Seema Khanna is required to route the files related to IT/ICT and Grievances/PGRS through Senior Deputy Election Commissioner Pawan Kumar Sharma",
+   "author": "",
+   "url": "https://www.thehindu.com/news/national/eci-issues-fresh-work-allocation-order-brings-back-oversight-on-it-head/article71669915.ece",
+   "publishedAt": "2026-11-05T17:24:57.000Z"
+  },
+  {
+   "id": "c3c73b78b9",
+   "paper": "the-hindu",
+   "section": "nation",
+   "desk": "Latest",
+   "title": "VAO placed under suspension",
+   "summary": "",
+   "author": "",
+   "url": "https://www.thehindu.com/news/cities/Madurai/vao-placed-under-suspension/article71671076.ece",
+   "publishedAt": "2026-11-05T17:24:51.000Z"
+  },
+  {
+   "id": "95f0de28e9",
+   "paper": "the-hindu",
+   "section": "nation",
+   "desk": "National",
+   "title": "Wanted ‘ganja queen’ Neethu Bai arrested after year-long search",
+   "summary": "Earlier investigations led to the attachment of ₹40.30 lakh in cash, deposits of ₹1.53 crore across 16 bank accounts and properties worth around ₹2 crore.",
+   "author": "",
+   "url": "https://www.thehindu.com/news/national/telangana/wanted-ganja-queen-neethu-bai-arrested-after-year-long-search/article71670707.ece",
+   "publishedAt": "2026-11-05T17:24:18.000Z"
+  },
+  {
+   "id": "15346937ca",
+   "paper": "times-of-india",
+   "section": "world",
+   "desk": "World",
+   "title": "Wife smears faeces in husband's mouth after threatening to make him eat it; gets suspended jail term",
+   "summary": "A 63-year-old woman in the UK has received a suspended prison sentence after smearing faeces into her husband's mouth during an argument at their £1 million farmhouse.",
+   "author": "TOI World Desk",
+   "url": "https://timesofindia.indiatimes.com/world/uk/a-63-year-old-woman-smears-faeces-in-her-husbands-mouth-after-threatening-to-make-him-eat-it-at-1-million-farmhouse-handed-12-month-suspended-jail-term-judge-calls-attack-gratuitous-degradation/articleshow/135581499.cms",
+   "publishedAt": "2026-11-05T17:24:12.000Z"
+  },
+  {
+   "id": "7a218a68a0",
+   "paper": "the-hindu",
+   "section": "nation",
+   "desk": "National",
+   "title": "Karnataka: Drought compensation for farmers to be doubled to ₹5,000",
+   "summary": "",
+   "author": "",
+   "url": "https://www.thehindu.com/news/national/karnataka/karnataka-drought-compensation-for-farmers-to-be-doubled-to-5000/article71670586.ece",
+   "publishedAt": "2026-11-05T17:24:08.000Z"
+  },
+  {
    "id": "19d0dca6da",
    "paper": "businessline",
    "section": "business",
@@ -399,7 +641,18 @@
    "summary": "Higher crude oil realisations boosted earnings, while the state-owned energy major outlined investments to strengthen production and expand future hydrocarbon potential",
    "author": "",
    "url": "https://www.thehindubusinessline.com/companies/ongc-q2-profit-rises-57-to-15489-crore-on-higher-crude-oil-realisations/article71671364.ece",
-   "publishedAt": "2026-11-05T17:22:21.000Z"
+   "publishedAt": "2026-11-05T17:23:25.000Z"
+  },
+  {
+   "id": "71f83f3127",
+   "paper": "deccan-herald",
+   "section": "world",
+   "desk": "Latest",
+   "title": "Trump ally leading Justice Department civil rights unit to resign",
+   "summary": "",
+   "author": "",
+   "url": "https://www.deccanherald.com/world/us/trump-ally-leading-justice-department-civil-rights-unit-to-resign-4209301",
+   "publishedAt": "2026-11-05T17:22:19.000Z"
   },
   {
    "id": "ab2560fdd6",
@@ -413,6 +666,17 @@
    "publishedAt": "2026-11-05T17:21:58.000Z"
   },
   {
+   "id": "64233d7f29",
+   "paper": "indian-express",
+   "section": "sport",
+   "desk": "Sports",
+   "title": "Farmer and late starter from Chhindwara wins 10m air pistol silver at World Championships",
+   "summary": "",
+   "author": "",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQWTVYN0Z5ZU9MXzJpd1BBNDlscl9Ec1liLW45M0ZFRVVMai1Hc2tNdFVUU0Y1SHB6STZHZWUxaGxldThQZlRidUl5RGVpX25rbzVuaUJxY1ZoTDlHVU1RT0hGM3o3RVVwNHpzM0pCMGNiLW42Z19VVGgyYWJzYlRDNFRybDJMN3U5Ukd4VEdDLXJpN1NtWWd2RDJvNklLeFFKXzFXSHBZN3NoV1k0cDc3VnBOal8?oc=5",
+   "publishedAt": "2026-11-05T17:21:56.000Z"
+  },
+  {
    "id": "d098634677",
    "paper": "the-hindu",
    "section": "nation",
@@ -422,6 +686,17 @@
    "author": "",
    "url": "https://www.thehindu.com/news/national/kerala/three-parking-grounds-to-be-set-up-in-kumily-for-sabarimala-pilgrims/article71670737.ece",
    "publishedAt": "2026-11-05T17:21:54.000Z"
+  },
+  {
+   "id": "96d3657745",
+   "paper": "the-hindu",
+   "section": "nation",
+   "desk": "Latest",
+   "title": "Man arrested on charges of murdering his wife",
+   "summary": "",
+   "author": "",
+   "url": "https://www.thehindu.com/news/cities/Madurai/man-arrested-on-charges-of-murdering-his-wife/article71671005.ece",
+   "publishedAt": "2026-11-05T17:21:28.000Z"
   },
   {
    "id": "d5892a1eca",
@@ -466,6 +741,28 @@
    "author": "",
    "url": "https://www.thehindu.com/news/national/karnataka/farmers-agree-to-allow-sugarcane-crushing-in-mills-starting-today/article71670990.ece",
    "publishedAt": "2026-11-05T17:20:34.000Z"
+  },
+  {
+   "id": "da080689a8",
+   "paper": "the-hindu",
+   "section": "nation",
+   "desk": "Latest",
+   "title": "Councillors blame officials for poor roads, incomplete UGD works in Karaikudi",
+   "summary": "",
+   "author": "",
+   "url": "https://www.thehindu.com/news/cities/Madurai/councillors-blame-officials-for-poor-roads-incomplete-ugd-works-in-karaikudi/article71670870.ece",
+   "publishedAt": "2026-11-05T17:20:30.000Z"
+  },
+  {
+   "id": "5314e878bf",
+   "paper": "deccan-herald",
+   "section": "nation",
+   "desk": "Latest",
+   "title": "ED searches 13 locations in probe into fake tender racket run in Tripura government entity's name",
+   "summary": "",
+   "author": "",
+   "url": "https://www.deccanherald.com/india/tripura/ed-searches-13-locations-in-probe-into-fake-tender-racket-run-in-tripura-government-entitys-name-4209286",
+   "publishedAt": "2026-11-05T17:19:58.000Z"
   },
   {
    "id": "64f4854ec5",
@@ -556,6 +853,17 @@
    "publishedAt": "2026-11-05T17:17:35.000Z"
   },
   {
+   "id": "f98e68215e",
+   "paper": "deccan-herald",
+   "section": "nation",
+   "desk": "Latest",
+   "title": "Release Krishna river water into canals until Nov 30, CM urged",
+   "summary": "",
+   "author": "",
+   "url": "https://www.deccanherald.com/india/karnataka/release-krishna-river-water-into-canals-until-nov-30-cm-urged-4209296",
+   "publishedAt": "2026-11-05T17:17:25.000Z"
+  },
+  {
    "id": "d799961c9a",
    "paper": "tribune",
    "section": "nation",
@@ -576,6 +884,17 @@
    "author": "",
    "url": "https://www.thehindu.com/news/cities/Coimbatore/nine-persons-granted-bail-in-perumbali-burial-ground-case-in-perundurai/article71670905.ece",
    "publishedAt": "2026-11-05T17:16:48.000Z"
+  },
+  {
+   "id": "9db35d4603",
+   "paper": "hindustan-times",
+   "section": "sport",
+   "desk": "Sports",
+   "title": "Uran’s Priyanshi, 14, sails against odds into the Youth Olympics",
+   "summary": "The only Indian sailor at the Games will compete in the women's windsurfing event beginning November 8.",
+   "author": "",
+   "url": "https://www.hindustantimes.com/sports/others/urans-priyanshi-14-sails-against-odds-into-the-youth-olympics-101793897583331.html",
+   "publishedAt": "2026-11-05T17:16:36.000Z"
   },
   {
    "id": "5cf337a9d4",
@@ -633,6 +952,17 @@
    "publishedAt": "2026-11-05T17:15:17.000Z"
   },
   {
+   "id": "51b327e9a8",
+   "paper": "times-of-india",
+   "section": "world",
+   "desk": "World",
+   "title": "Louisiana court upholds a trust protector's powers to change beneficiaries and approve early closure",
+   "summary": "A Louisiana appeals court upheld a trust protector's authority to change future beneficiaries and require approval before a trust could be ended early. The case involved a trust created by a stepfather for his stepson in 2004.",
+   "author": "TOI World Desk",
+   "url": "https://timesofindia.indiatimes.com/world/us/a-louisiana-stepfather-created-a-trust-and-family-property-company-in-2004-after-he-and-his-wife-died-a-dispute-arose-over-who-could-change-future-beneficiaries-and-an-appeals-court-upheld-the-trust-protectors-powers/articleshow/135578576.cms",
+   "publishedAt": "2026-11-05T17:15:00.000Z"
+  },
+  {
    "id": "3acdd91176",
    "paper": "the-hindu",
    "section": "nation",
@@ -642,6 +972,17 @@
    "author": "",
    "url": "https://www.thehindu.com/news/cities/chennai/isros-latest-navigation-satellite-nvs-03-is-fully-healthy-says-chairman-v-narayanan/article71670095.ece",
    "publishedAt": "2026-11-05T17:14:46.000Z"
+  },
+  {
+   "id": "5fc8173e34",
+   "paper": "deccan-herald",
+   "section": "nation",
+   "desk": "Latest",
+   "title": "Protest withdrawn, sugarcane crushing to commence",
+   "summary": "",
+   "author": "",
+   "url": "https://www.deccanherald.com/india/karnataka/protest-withdrawn-sugarcane-crushing-to-commence-4209229",
+   "publishedAt": "2026-11-05T17:14:31.000Z"
   },
   {
    "id": "cb585ad4f6",
@@ -677,6 +1018,17 @@
    "publishedAt": "2026-11-05T17:14:22.000Z"
   },
   {
+   "id": "5bdbb28223",
+   "paper": "deccan-herald",
+   "section": "nation",
+   "desk": "Latest",
+   "title": "BJP aims to secure third term for Yogi govt in UP with focus on welfare schemes, navigating caste equations a task for saffron party",
+   "summary": "",
+   "author": "",
+   "url": "https://www.deccanherald.com/india/uttar-pradesh/bjp-aims-to-secure-third-term-for-yogi-govt-in-up-with-focus-on-welfare-schemes-navigating-caste-equations-a-task-for-saffron-party-4209172",
+   "publishedAt": "2026-11-05T17:14:18.000Z"
+  },
+  {
    "id": "1f926c4fe1",
    "paper": "the-hindu",
    "section": "nation",
@@ -686,6 +1038,17 @@
    "author": "",
    "url": "https://www.thehindu.com/news/national/very-few-complaints-received-so-far-on-police-brutality-during-july-20-protests-says-supreme-court/article71669259.ece",
    "publishedAt": "2026-11-05T17:14:15.000Z"
+  },
+  {
+   "id": "15ef09439f",
+   "paper": "the-hindu",
+   "section": "business",
+   "desk": "Business",
+   "title": "ONGC Q2 net profit jumps 57% on higher crude, gas realisations",
+   "summary": "Along with the results, the company declared an interim dividend of ₹8 per equity share.",
+   "author": "",
+   "url": "https://www.thehindu.com/business/Economy/ongc-q2-net-profit-jumps-57-on-higher-crude-gas-realisations/article71670861.ece",
+   "publishedAt": "2026-11-05T17:13:19.000Z"
   },
   {
    "id": "ed96ffa4e8",
@@ -765,15 +1128,15 @@
    "publishedAt": "2026-11-05T17:10:59.000Z"
   },
   {
-   "id": "3af470629e",
-   "paper": "the-hindu",
+   "id": "52b743d390",
+   "paper": "deccan-herald",
    "section": "nation",
    "desk": "Latest",
-   "title": "Yakshagana Talamaddale on Saturday",
+   "title": "PIL challenges appointment of Anekal MLA Shivanna as KSPCB chairperson",
    "summary": "",
    "author": "",
-   "url": "https://www.thehindu.com/news/cities/Mangalore/yakshagana-talamaddale-on-saturday/article71670627.ece",
-   "publishedAt": "2026-11-05T17:10:55.000Z"
+   "url": "https://www.deccanherald.com/india/karnataka/pil-challenges-appointment-of-anekal-mla-shivanna-as-kspcb-chairperson-4209275",
+   "publishedAt": "2026-11-05T17:10:41.000Z"
   },
   {
    "id": "1f5589b481",
@@ -809,17 +1172,6 @@
    "publishedAt": "2026-11-05T17:10:08.000Z"
   },
   {
-   "id": "4794143808",
-   "paper": "the-hindu",
-   "section": "nation",
-   "desk": "Latest",
-   "title": "Activist assaulted by woman in Karaikudi",
-   "summary": "",
-   "author": "",
-   "url": "https://www.thehindu.com/news/cities/Madurai/activist-assaulted-by-woman-in-karaikudi/article71670917.ece",
-   "publishedAt": "2026-11-05T17:10:04.000Z"
-  },
-  {
    "id": "a491134267",
    "paper": "times-of-india",
    "section": "world",
@@ -831,26 +1183,15 @@
    "publishedAt": "2026-11-05T17:10:03.000Z"
   },
   {
-   "id": "ee0314de7c",
-   "paper": "the-hindu",
+   "id": "4e0cb3bdf3",
+   "paper": "deccan-herald",
    "section": "nation",
    "desk": "Latest",
-   "title": "International conference on high entropy alloys begins in MKU",
+   "title": "Shobha accuses Congress of conspiring against SIR",
    "summary": "",
    "author": "",
-   "url": "https://www.thehindu.com/news/cities/Madurai/international-conference-on-high-entropy-alloys-begins-in-mku/article71671365.ece",
-   "publishedAt": "2026-11-05T17:09:52.000Z"
-  },
-  {
-   "id": "09f5131309",
-   "paper": "the-hindu",
-   "section": "nation",
-   "desk": "Latest",
-   "title": "Congress chief urges Puducherry government to provide cyclone-relief to affected people in Yanam without delay",
-   "summary": "",
-   "author": "",
-   "url": "https://www.thehindu.com/news/cities/puducherry/congress-chief-urges-puducherry-government-to-provide-cyclone-relief-to-affected-people-in-yanam-without-delay/article71669867.ece",
-   "publishedAt": "2026-11-05T17:09:24.000Z"
+   "url": "https://www.deccanherald.com/india/karnataka/shobha-accuses-congress-of-conspiring-against-sir-4209243",
+   "publishedAt": "2026-11-05T17:09:38.000Z"
   },
   {
    "id": "b93834fe4a",
@@ -862,6 +1203,39 @@
    "author": "",
    "url": "https://www.thehindu.com/news/cities/Vijayawada/the-hindu-to-organise-career-seminar-in-guntur-on-october-6/article71670286.ece",
    "publishedAt": "2026-11-05T17:09:19.000Z"
+  },
+  {
+   "id": "5c7791732d",
+   "paper": "hindustan-times",
+   "section": "nation",
+   "desk": "India",
+   "title": "Former Supreme Court Justice Rajesh Bindal appointed NCLAT chairperson",
+   "summary": "Bindal retired from the Supreme Court on April 15 this year after serving at the top court for over three years.",
+   "author": "",
+   "url": "https://www.hindustantimes.com/india-news/former-supreme-court-justice-rajesh-bindal-appointed-nclat-chairperson-101793897964121.html",
+   "publishedAt": "2026-11-05T17:08:27.000Z"
+  },
+  {
+   "id": "77b05d31c2",
+   "paper": "deccan-herald",
+   "section": "nation",
+   "desk": "Latest",
+   "title": "Karnataka: Systematic arrangements at Hasanamba temple earn praise despite huge rush of devotees",
+   "summary": "",
+   "author": "",
+   "url": "https://www.deccanherald.com/india/karnataka/karnataka-systematic-arrangements-at-hasanamba-temple-earn-praise-despite-huge-rush-of-devotees-4209276",
+   "publishedAt": "2026-11-05T17:08:05.000Z"
+  },
+  {
+   "id": "5a6c039f91",
+   "paper": "deccan-herald",
+   "section": "nation",
+   "desk": "Latest",
+   "title": "Cancer treatment facility in Karwar set to open soon",
+   "summary": "",
+   "author": "",
+   "url": "https://www.deccanherald.com/india/karnataka/cancer-treatment-facility-in-karwar-set-to-open-soon-4209277",
+   "publishedAt": "2026-11-05T17:07:35.000Z"
   },
   {
    "id": "c078bd596b",
@@ -895,17 +1269,6 @@
    "author": "ANI",
    "url": "https://www.tribuneindia.com/news/adarsh-swaika/the-bharat-connection-indian-high-commission-in-kenya-launches-podcast-series-to-document-shared-heritage",
    "publishedAt": "2026-11-05T17:07:14.000Z"
-  },
-  {
-   "id": "d632f2268d",
-   "paper": "the-hindu",
-   "section": "nation",
-   "desk": "Latest",
-   "title": "Post a warden to every hostel, legislature panel directs Department of Backward Classes and Minorities",
-   "summary": "",
-   "author": "",
-   "url": "https://www.thehindu.com/news/cities/Mangalore/post-a-warden-to-every-hostel-legislature-panel-directs-department-of-backward-classes-and-minorities/article71670473.ece",
-   "publishedAt": "2026-11-05T17:07:09.000Z"
   },
   {
    "id": "3d6f168ae6",
@@ -1018,28 +1381,6 @@
    "publishedAt": "2026-11-05T17:04:33.000Z"
   },
   {
-   "id": "68db0931fd",
-   "paper": "the-hindu",
-   "section": "nation",
-   "desk": "Latest",
-   "title": "Madurai property tax scam: HC denies advance bail to ‘Misa’ Pandian",
-   "summary": "",
-   "author": "",
-   "url": "https://www.thehindu.com/news/cities/Madurai/madurai-property-tax-scamhc-denies-advance-bail-to-misa-pandian/article71670724.ece",
-   "publishedAt": "2026-11-05T17:04:29.000Z"
-  },
-  {
-   "id": "1487990def",
-   "paper": "the-hindu",
-   "section": "nation",
-   "desk": "Latest",
-   "title": "HC dispenses with personal appearance of HR and CE Commissioner",
-   "summary": "",
-   "author": "",
-   "url": "https://www.thehindu.com/news/cities/Madurai/hc-dispenses-with-personal-appearance-of-hr-and-ce-commissioner/article71670848.ece",
-   "publishedAt": "2026-11-05T17:04:27.000Z"
-  },
-  {
    "id": "a65e912901",
    "paper": "deccan-herald",
    "section": "nation",
@@ -1060,28 +1401,6 @@
    "author": "",
    "url": "https://www.thehindu.com/business/Industry/openai-formalises-future-us-data-centre-safeguards-pledges-union-engagement-environmental-disclosures/article71670304.ece",
    "publishedAt": "2026-11-05T17:03:55.000Z"
-  },
-  {
-   "id": "801b5e5b6d",
-   "paper": "the-hindu",
-   "section": "nation",
-   "desk": "National",
-   "title": "Devi Shetty conferred with France’s National Order of Merit",
-   "summary": "Dr. Shetty was recognised for extending vaccination and logistical support to the French Consulate and the wider French community during the pandemic",
-   "author": "",
-   "url": "https://www.thehindu.com/news/national/karnataka/devi-shetty-conferred-with-frances-national-order-of-merit/article71670697.ece",
-   "publishedAt": "2026-11-05T17:03:32.000Z"
-  },
-  {
-   "id": "70aebc750f",
-   "paper": "the-hindu",
-   "section": "nation",
-   "desk": "National",
-   "title": "Telangana climate conclave to be special feature of global summit",
-   "summary": "Scientists and experts to deliberate on tackling climate change and drought proofing agriculture",
-   "author": "",
-   "url": "https://www.thehindu.com/news/national/telangana/telangana-climate-conclave-to-be-special-feature-of-global-summit/article71670587.ece",
-   "publishedAt": "2026-11-05T17:03:20.000Z"
   },
   {
    "id": "fcffe78d33",
@@ -1108,24 +1427,13 @@
   {
    "id": "4c2f8b336f",
    "paper": "the-hindu",
-   "section": "nation",
-   "desk": "National",
+   "section": "world",
+   "desk": "International",
    "title": "Foreign Secretary Misri sets stage for Nepal PM’s upcoming India visit",
    "summary": "The Nepali leaders expressed “gratitude for India’s swift and substantial humanitarian and technical assistance in the aftermath of the Bhotekoshi floods”, a joint press release stated",
    "author": "",
    "url": "https://www.thehindu.com/news/national/foreign-secretary-misri-sets-stage-for-nepal-pms-upcoming-india-visit/article71671036.ece",
    "publishedAt": "2026-11-05T17:02:06.000Z"
-  },
-  {
-   "id": "bb48dcabdd",
-   "paper": "the-hindu",
-   "section": "nation",
-   "desk": "National",
-   "title": "Appointment process for tribal mentor-teachers going at a slow pace in Keralam",
-   "summary": "Social activists are concerned if the delay will aggravate the dropping out of students from these communities.",
-   "author": "",
-   "url": "https://www.thehindu.com/news/national/kerala/appointment-process-for-tribal-mentor-teachers-going-at-a-slow-pace-in-keralam/article71670207.ece",
-   "publishedAt": "2026-11-05T17:02:03.000Z"
   },
   {
    "id": "df333d17e3",
@@ -1161,17 +1469,6 @@
    "publishedAt": "2026-11-05T17:00:40.000Z"
   },
   {
-   "id": "7ddf4fdd6e",
-   "paper": "the-hindu",
-   "section": "nation",
-   "desk": "National",
-   "title": "Mudalur, Tamil Nadu’s first Christian settlement, stands tall with its magnificent church tower",
-   "summary": "Established in 1799, Mudalur was the first exclusive settlement created for newly converted Christians in Tamil Nadu. Some claim it was the first Christian village in India and Asia.",
-   "author": "",
-   "url": "https://www.thehindu.com/news/national/tamil-nadu/mudalur-tamil-nadus-first-christian-settlement-stands-tall-with-its-magnificent-church-tower/article71632109.ece",
-   "publishedAt": "2026-11-05T17:00:36.000Z"
-  },
-  {
    "id": "c4ed81bff3",
    "paper": "the-hindu",
    "section": "business",
@@ -1181,17 +1478,6 @@
    "author": "",
    "url": "https://www.thehindu.com/business/lic-q2-profit-rises-20-to-12115-crore-as-vnb-margin-and-net-premium-expands/article71670728.ece",
    "publishedAt": "2026-11-05T17:00:21.000Z"
-  },
-  {
-   "id": "d1eb058716",
-   "paper": "the-hindu",
-   "section": "nation",
-   "desk": "National",
-   "title": "Koppal court sentences man to life imprisonment for murdering wife",
-   "summary": "It also imposes on him a fine of ₹2 lakh for the crime",
-   "author": "",
-   "url": "https://www.thehindu.com/news/national/karnataka/koppal-court-sentences-man-to-life-imprisonment-for-murdering-wife/article71670190.ece",
-   "publishedAt": "2026-11-05T17:00:12.000Z"
   },
   {
    "id": "12ea6a53c1",
@@ -1205,17 +1491,6 @@
    "publishedAt": "2026-11-05T17:00:11.000Z"
   },
   {
-   "id": "d5b5855958",
-   "paper": "the-hindu",
-   "section": "nation",
-   "desk": "National",
-   "title": "MCC e-Aasthi drive: 808 applications on first day",
-   "summary": "",
-   "author": "",
-   "url": "https://www.thehindu.com/news/national/karnataka/mcc-e-aasthi-drive-808-applications-on-first-day/article71670109.ece",
-   "publishedAt": "2026-11-05T16:59:14.000Z"
-  },
-  {
    "id": "0312c8de2a",
    "paper": "mint",
    "section": "business",
@@ -1227,17 +1502,6 @@
    "publishedAt": "2026-11-05T16:59:02.000Z"
   },
   {
-   "id": "7a348719f2",
-   "paper": "the-hindu",
-   "section": "nation",
-   "desk": "National",
-   "title": "CU garden notified as biodiversity heritage site",
-   "summary": "",
-   "author": "",
-   "url": "https://www.thehindu.com/news/national/kerala/cu-garden-notified-as-biodiversity-heritage-site/article71670566.ece",
-   "publishedAt": "2026-11-05T16:58:56.000Z"
-  },
-  {
    "id": "c0997b187d",
    "paper": "new-indian-express",
    "section": "nation",
@@ -1247,39 +1511,6 @@
    "author": "",
    "url": "https://www.newindianexpress.com/states/madhya-pradesh/2026/Nov/05/wanted-dacoit-kalli-gurjar-carrying-rs-80000-bounty-arrested-after-brief-encounter-in-mps-morena",
    "publishedAt": "2026-11-05T16:58:48.000Z"
-  },
-  {
-   "id": "a74faa7b8f",
-   "paper": "the-hindu",
-   "section": "nation",
-   "desk": "National",
-   "title": "Congress hit backs at Amit Shah for his ‘ghuspetiya bachao’ remark on INDIA bloc rally",
-   "summary": "Give up charge of the Home Ministry and return to the BJP, the Opposition party says, questioning the Union Home Minister’s handling of internal security, including the continuing violence in Manipur",
-   "author": "",
-   "url": "https://www.thehindu.com/news/national/congress-hit-backs-at-amit-shah-for-his-ghuspetiya-bachao-remark-on-india-bloc-rally/article71670874.ece",
-   "publishedAt": "2026-11-05T16:57:54.000Z"
-  },
-  {
-   "id": "25b0d9a699",
-   "paper": "the-hindu",
-   "section": "nation",
-   "desk": "National",
-   "title": "Karnataka HC permits Pradosh to perform father’s death anniversary rituals for six days",
-   "summary": "",
-   "author": "",
-   "url": "https://www.thehindu.com/news/national/karnataka/karnataka-hc-permits-pradosh-to-perform-fathers-death-anniversary-rituals-for-six-days/article71670434.ece",
-   "publishedAt": "2026-11-05T16:57:29.000Z"
-  },
-  {
-   "id": "c3d288a8b3",
-   "paper": "the-hindu",
-   "section": "nation",
-   "desk": "National",
-   "title": "Appeal for eco-friendly Deepavali: Bursting crackers permitted only between 8 p.m. and 10 p.m.",
-   "summary": "",
-   "author": "",
-   "url": "https://www.thehindu.com/news/national/karnataka/appeal-for-eco-friendly-deepavali-bursting-crackers-permitted-only-between-8-pm-and-10-pm/article71670308.ece",
-   "publishedAt": "2026-11-05T16:56:53.000Z"
   },
   {
    "id": "cea5a35eb3",
@@ -1346,6 +1577,17 @@
    "author": "",
    "url": "https://www.hindustantimes.com/world-news/paraguay-banking-crisis-leaves-millions-locked-out-of-accounts-ueno-bank-santiago-pena-protest-101793879644459.html",
    "publishedAt": "2026-11-05T16:53:33.000Z"
+  },
+  {
+   "id": "4c7fba5869",
+   "paper": "economic-times",
+   "section": "nation",
+   "desk": "Top stories",
+   "title": "UPSC Mains Result: Who made the interview cut?",
+   "summary": "",
+   "author": "",
+   "url": "https://economictimes.indiatimes.com/news/new-updates/upsc-mains-result-2026-who-has-qualified-for-interview-round-check-list-of-2526-candidates-who-cleared-written-exam-and-download-the-pdf-here/articleshow/135580937.cms",
+   "publishedAt": "2026-11-05T16:52:49.000Z"
   },
   {
    "id": "2a81288438",
@@ -2536,17 +2778,6 @@
    "publishedAt": "2026-11-05T15:58:13.000Z"
   },
   {
-   "id": "931aa3e0e1",
-   "paper": "business-standard",
-   "section": "business",
-   "desk": "Economy",
-   "title": "Datanomics: Piyush Goyal targets tenfold increase in India-Germany trade",
-   "summary": "",
-   "author": "",
-   "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQT0Y4VkZISnVFVF9NX05hZDZTY1YtVEtqQVVtODdraVQ5XzZxR3RoVDR1eVJsRHBDTkdBRk4xNTdFVFFDMXh5NF9NRlFpRW9HUDFvcHpRMFlaWWVjV1h1dmY3LWFoQWhvWU5zYTMxUE1CdHBOUTV0YVBuVnFqOGF3X0lKS3lYVndtVVliTF9lR2E4Ymx3TFR4SWFpRzhIYnYyOUxqSnA1MjhkencybDQyT2syVm5NcVpFUFRHY0Jkc1NJQVRZWUtkbjVkNlBfa2l5SmFObtIB2gFBVV95cUxPZDBPWXVqS3FMblJxTmJkTk16N0FMcTJJRklERVoyM0pWS09Pc1AzTkV1OTdwX3daQ3pMMUgwNG9SeUJ5UFVkLTlZRnVlc2xtZm9BZFAzQ2VfcnFURlgtWmhodlB2c2dtX084MFMxeHo1UDRrMUJoa01oWGJXaEhfb0drQXg0TzVfbG90c2Vaa25SX2paZVdsblBUZXRXWUFuZ0FXNUNVVS1RVlQ1RV83RjRITzVJd0tuOWIxUkN5bmxKdm5kRkVLdzcwSEQxcXBLOW9ZZXpRZHBKUQ?oc=5",
-   "publishedAt": "2026-11-05T15:58:10.000Z"
-  },
-  {
    "id": "d36f0b813f",
    "paper": "economic-times",
    "section": "business",
@@ -2655,17 +2886,6 @@
    "author": "",
    "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNSVE1ZWFLZnVuRndNazJqM2dPVUJ0eXFMQWV5NG83Z1BYcFpLZWVpS2VQbjdHckg5dmNpU2d1TVF1aTlULTBBNlFpR1BkVDBvVUFuS3dSU3pLcGgtRm1HNHFFTlM1enE5cW5ZUWc1Szgzcm50R3d5NEdYZUpMbXFLZmJ4QkhRRGl4bFZVSWZWY0hWSno0M1ZDTnpHN3lzY096X1NLZkhydWc2Wm9BSVFrSWpaVW00SXczLVFaSzU2cUg5b2FEbHM3QWViLXk1NUxH0gHWAUFVX3lxTE5KOFdoRmJ6NFRZcy1EQzR0aTVrVWtQSjJWOXFBaWhCRGJnTDNpckFOdk5YQjY2RVpLRDNOS294R3c4Q2wySVNQcDNvaF9zSHJIUm1XemNhclJnblN5N01zM1BwSHZFenlTN2NKN3puckRfNnY0bkhsLVRhX1lKQUpqLXlyUG9QSTluV0dpMmhIaUtYanI1WGxEU29GZjVaSEZMU1NXNEl3X0ozRnFBUDZuY2F3ZDdadGtNVFllY2NnLWM4RlhZY3lLQ2tldDZrRmZuZlZmQ2c?oc=5",
    "publishedAt": "2026-11-05T15:53:06.000Z"
-  },
-  {
-   "id": "e9aa8d9545",
-   "paper": "the-hindu",
-   "section": "business",
-   "desk": "Business",
-   "title": "Repeat gold borrowing rises among low-risk customers, repayment stress persists: CIBIL",
-   "summary": "Borrowers who had missed more than one payment in the preceding six months were three times as likely to become delinquent.",
-   "author": "",
-   "url": "https://www.thehindu.com/business/repeat-gold-borrowing-rises-among-low-risk-customers-repayment-stress-persists-cibil/article71670923.ece",
-   "publishedAt": "2026-11-05T15:52:49.000Z"
   },
   {
    "id": "30d3d3bb95",
@@ -2932,14 +3152,14 @@
    "publishedAt": "2026-11-05T15:42:13.000Z"
   },
   {
-   "id": "658c5ab318",
+   "id": "81984aa265",
    "paper": "financial-express",
    "section": "business",
    "desk": "Business",
    "title": "Adani Ports to fully acquire Netherlands’ Evos aims to expand global operations",
    "summary": "",
    "author": "",
-   "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNeXM0bkJ0RkRMR2JmUXJUOU12dk1Wb3NNbnoyRFFIa24xazNzaUFhWEZPeTBxS0Exa0duakxvNWt2QWdqam1icEtBYmxVeEtpVGVWYlFlR3gxSlo0MlFqakE4cUY4Z0NNVHkyYlI2a0tFaVkta2YxempBRmtYMF84QzRVeUs3LXg4aFNrRVBNR3B6OFYwenhMVEVkeGJKTTYtTmtId3VjZ1JVWk9fdmstX3hodWpJU01DNW1Dai16TzRGSlFsVFB0eUxMOG5BbWZZUEFPZlln0gHWAUFVX3lxTE15czRuQnRGRExHYmZRclQ5TXZ2TVZvc01uejJEUUhrbjFrM3NpQWFYRk95MHFLQTFrR25qTG81a3ZBZ2pqbWJwS0FibFV4S2lUZVZiUWVHeDFKWjQyUWpqQThxRjhnQ01UeTJiUjZrS0VpWS1rZjF6akFGa1gwXzhDNFV5SzcteDhoU2tFUE1HcHo4VjB6eExURWR4YkpNNi1Oa0h3dWNnUlVaT192ay1feGh1aklTTUM1bUNqLXpPNEZKUWxUUHR5TEw4bkFtZllQQU9mWWc?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOSWgtWWNBc3JCd0dGdUNVLWlSam94dFlYeVhPb1c2RzZMb0ZRZGdWSzJiRkR0NEh5akhVbEVNMTZZc3diUTgzenBoSHV3UW00YXoybDRjc0tVZ1hPSGxLaGMzcWlNU2VhQW5uWk92c3RvalFtQU5Ka3Bkb2std2tYUjZNZFc0bTZHblk0Q1JjVmJxY19Mc0NzOUstR3BZLUxrUm5Jc1poRGphUmRnRW1CSDhpbDNuTk9IZE9UYUh0dE9jR1h0dVNuWGZXc05GQVXSAdYBQVVfeXFMTXlzNG5CdEZETEdiZlFyVDlNdnZNVm9zTW56MkRRSGtuMWszc2lBYVhGT3kwcUtBMWtHbmpMbzVrdkFnamptYnBLQWJsVXhLaVRlVmJRZUd4MUpaNDJRampBOHFGOGdDTVR5MmJSNmtLRWlZLWtmMXpqQUZrWDBfOEM0VXlLNy14OGhTa0VQTUdwejhWMHp4TFRFZHhiSk02LU5rSHd1Y2dSVVpPX3ZrLV94aHVqSVNNQzVtQ2otek80RkpRbFRQdHlMTDhuQW1mWVBBT2ZZZw?oc=5",
    "publishedAt": "2026-11-05T15:41:35.000Z"
   },
   {
@@ -3108,17 +3328,6 @@
    "publishedAt": "2026-11-05T15:37:12.000Z"
   },
   {
-   "id": "8855507085",
-   "paper": "tribune",
-   "section": "nation",
-   "desk": "Latest",
-   "title": "Centre takes back 39.5 acres of Air Force Sports Complex near PM Modi’s residence",
-   "summary": "The Centre has taken possession of another prime government land parcel near the Prime Minister’s official residence, with the Indian Air Force (IAF) formally handing over 39.5 acres housing its Sports Complex at Race Course Air…",
-   "author": "Manikant Mishra",
-   "url": "https://www.tribuneindia.com/news/delhi/centre-takes-back-39-5-acres-of-air-force-sports-complex-near-pm-modis-residence",
-   "publishedAt": "2026-11-05T15:37:03.000Z"
-  },
-  {
    "id": "a1e2d32a5c",
    "paper": "times-of-india",
    "section": "world",
@@ -3183,17 +3392,6 @@
    "author": "",
    "url": "https://www.thehindubusinessline.com/opinion/letters-to-editor/article71670938.ece",
    "publishedAt": "2026-11-05T15:35:05.000Z"
-  },
-  {
-   "id": "704c93f4bc",
-   "paper": "tribune",
-   "section": "nation",
-   "desk": "Latest",
-   "title": "Nuh back in spotlight over illegal hunting of migratory birds, 4 booked",
-   "summary": "Nuh has once again come under scanner for the illegal hunting of migratory birds, with the Wildlife Department getting a case registered against four men for allegedly netting birds at the Kotla-Akera lake as winter visitors…",
-   "author": "Sumedha Sharma",
-   "url": "https://www.tribuneindia.com/news/gurugram/nuh-back-in-spotlight-over-illegal-hunting-of-migratory-birds-4-booked",
-   "publishedAt": "2026-11-05T15:34:46.000Z"
   },
   {
    "id": "d0d5358b2f",
@@ -3304,17 +3502,6 @@
    "author": "",
    "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/qualcomm-shares-9-slump-as-weak-smartphone-chip-sales-overshadow-data-center-momentum/articleshow/135578695.cms",
    "publishedAt": "2026-11-05T15:29:36.000Z"
-  },
-  {
-   "id": "15ef09439f",
-   "paper": "the-hindu",
-   "section": "business",
-   "desk": "Business",
-   "title": "ONGC Q2 net profit jumps 57% on higher crude, gas realisations",
-   "summary": "Along with the results, the company declared an interim dividend of ₹8 per equity share.",
-   "author": "",
-   "url": "https://www.thehindu.com/business/Economy/ongc-q2-net-profit-jumps-57-on-higher-crude-gas-realisations/article71670861.ece",
-   "publishedAt": "2026-11-05T15:29:07.000Z"
   },
   {
    "id": "070ea1e553",
@@ -3988,17 +4175,6 @@
    "publishedAt": "2026-11-05T14:58:45.000Z"
   },
   {
-   "id": "959a93ee30",
-   "paper": "deccan-herald",
-   "section": "tech",
-   "desk": "Latest",
-   "title": "Deepavali 2026: Best smart home gadget gift options",
-   "summary": "",
-   "author": "",
-   "url": "https://www.deccanherald.com/technology/smart-home-gadgets-deepavali-gift-ideas-under-rs-50000-4209031",
-   "publishedAt": "2026-11-05T14:58:23.000Z"
-  },
-  {
    "id": "23ed187269",
    "paper": "hindustan-times",
    "section": "nation",
@@ -4041,17 +4217,6 @@
    "author": "",
    "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNRzY2Vjhfa0NqVXRBSmJNN1BOLXdyeEF3RnpOUzhwdDd4Wm5HbUZ1RGMzWE9KWWZianJJSG1KQy1pT195OGpyOFRFcWM5QmJXWG1PWDRQRE1UcENsT3VaRTNLclRXOFh1X0ROd2t1VTB6dHV3ZHJadXUyUm1nZDYwVTQ0Q1liLTRiMzRwZFdNQXVaS1NUQzNUVWlZYmJoUmRmdWhzM0ptRGhfN3BoeGZ6QjB1ZnVCZDFKM1V0Mk9QeDhpOUdfMHVBMWw0UG9TQWZCOF9Kd0lsRkpFTFU5S0RkNnRacmFsVEk40gHuAUFVX3lxTE9UNWw1OXZ0U3d5aXp3ZVB6cWZFWTI1ZlZlSjY5NnBzMHplbEp0b0QwN1hUWGZpcVAxR1FyTEZNUzlJX05vaV9RbHZXRGhpQjJEbThveEEtQng0VVM4TGdScmcyR2lGR3lCTDVQRHV5aUdsZ3JGNnFXVnRob1dwbURPN0ZBMHhncDN5TnpfWDlwa0t6Yk0zVktkdXZqeTdXUXp4U1pad2RTWEZLQWJianpoaV9OS1JUdFdielpWMmhkeUdyYmkyeXRLYjVwS0FidHB1N2tWNC1RS3lwR215ZHRaZE41NVNtUkNVOFBfeEE?oc=5",
    "publishedAt": "2026-11-05T14:56:05.000Z"
-  },
-  {
-   "id": "4eda50dd08",
-   "paper": "deccan-herald",
-   "section": "business",
-   "desk": "Latest",
-   "title": "Bengaluru accounts for 43% of B2C e-commerce funding even as investments decline by one-third to $1.6 billion in 2026",
-   "summary": "",
-   "author": "",
-   "url": "https://www.deccanherald.com/business/bengaluru-accounts-for-43-of-b2c-e-commerce-funding-even-as-investments-decline-by-one-third-to-16-billion-in-2026-4209063",
-   "publishedAt": "2026-11-05T14:55:57.000Z"
   },
   {
    "id": "8665f35429",
@@ -4120,17 +4285,6 @@
    "publishedAt": "2026-11-05T14:53:38.000Z"
   },
   {
-   "id": "f084da15d9",
-   "paper": "deccan-herald",
-   "section": "nation",
-   "desk": "Latest",
-   "title": "Renukaswamy murder case: Karnataka High Court grants five-day interim bail to Pradoosh S Rao",
-   "summary": "",
-   "author": "",
-   "url": "https://www.deccanherald.com/india/karnataka/renukaswamy-murder-case-karnataka-high-court-grants-five-day-interim-bail-to-pradoosh-s-rao-4209046",
-   "publishedAt": "2026-11-05T14:53:30.000Z"
-  },
-  {
    "id": "0eb400e844",
    "paper": "new-indian-express",
    "section": "nation",
@@ -4151,17 +4305,6 @@
    "author": "",
    "url": "https://www.livemint.com/money/personal-finance/airline-says-passenger-was-late-but-can-t-prove-it-consumer-court-awards-delhi-flyer-71-587-details-inside-11793889134661.html",
    "publishedAt": "2026-11-05T14:51:29.000Z"
-  },
-  {
-   "id": "cc6d9d19e9",
-   "paper": "deccan-herald",
-   "section": "nation",
-   "desk": "Latest",
-   "title": "Siang project protest: Groups reject Arunachal CM's call for talks",
-   "summary": "",
-   "author": "",
-   "url": "https://www.deccanherald.com/india/arunachal-pradesh/siang-project-protest-groups-reject-arunachal-cms-call-for-talks-4209047",
-   "publishedAt": "2026-11-05T14:49:28.000Z"
   },
   {
    "id": "8455610125",
@@ -4206,17 +4349,6 @@
    "author": "",
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPZm8yRmEtMi0wZElEMGM3Q0ZGeDNwMkFYdWlIdU1JMmZaSDBhRkpWUGVTd2Y5UFJrV1hfLVF5bGhmUTc3ekVURXBXS0J1UEttckxpc1VYdEk0YU1BOU1jaVJDdmFPX0lJOWgtcGFoWkYwLVZGVmtRS1pxOWxxTllfNDNDSTBFdFFVVVA4Q1hZdkFrdGN6Nlp0dloxY3ZMcmNBUFpFVFZUNkxjc0dfSHRsZ0FyOTdadVXSAb4BQVVfeXFMTTZ4S3lPQ3ozb0I4ZXZaNjJhZTQxWHhxbmRocGo5Vm1JQnhkd0JQN3Y4MWVCSlFXM294aTdwZU5lSkc1XzJfWlN1TVdabWM3NDl0ZGZHWUs4SHJrYXo0WUNuMUtOeDRZeE4yZGhWdW1DMUF3NGQ5dGt0bUtGUFVvU1U5UHlxSnhNNFZsZmFIRWVSZGx5NnFMQThjMldka3BqZC16Q3ROeUdJVmxOazhaeHptS2MtS1JWUmZ3SmUxUQ?oc=5",
    "publishedAt": "2026-11-05T14:48:39.000Z"
-  },
-  {
-   "id": "b23152ea4a",
-   "paper": "deccan-herald",
-   "section": "sport",
-   "desk": "Latest",
-   "title": "'I always rated him highly'| Tendulkar lavishes praise on Root as England captain closes in on his record",
-   "summary": "",
-   "author": "",
-   "url": "https://www.deccanherald.com/sports/cricket/i-always-rated-him-highly-tendulkar-lavishes-praise-on-root-as-england-captain-closes-in-on-his-record-4208993",
-   "publishedAt": "2026-11-05T14:48:37.000Z"
   },
   {
    "id": "8cf05bd36f",
@@ -4344,7 +4476,7 @@
    "paper": "hindustan-times",
    "section": "world",
    "desk": "World",
-   "title": "Setback for Netanyahu as Israel’s Arab parties agree to back Eisenkot to form govt",
+   "title": "Setback for Netanyahu as Israel’s Arab parties agree to back Eisenkot as Prime Minister",
    "summary": "Gadi Eisenkot is now set to receive recommendations from 67 members of the 120-seat Knesset, putting him ahead of incumbent Prime Minister Benjamin Netanyahu.",
    "author": "",
    "url": "https://www.hindustantimes.com/world-news/setback-for-benjamin-netanyahu-as-israel-s-arab-parties-agree-to-back-gadi-eisenkot-to-form-govt-joint-list-majority-101793889625882.html",
@@ -4417,6 +4549,17 @@
    "publishedAt": "2026-11-05T14:40:22.000Z"
   },
   {
+   "id": "2ae653742f",
+   "paper": "financial-express",
+   "section": "business",
+   "desk": "Business",
+   "title": "South Central Railway announces Puja special trains on two routes; check dates, stoppages",
+   "summary": "",
+   "author": "",
+   "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQaXExRVVOUENMMmFlVmxhZWZ0NXU3OEY0ZzJrRlhVZm9YM0lPYXVCQVRVT2EySFdxY0hsd2taRklsaHlZM01vd2NyTXlxc3Y4SlprbGY1anBRcko1VVNxUmtyWlNpWXBYdXE5V2tULTR0Zm4yT1ZlcWZRYnUyUGh6VmVZWGpRUmVkY005ZW5tQS1zQ1NWQXJtSzNiOF9FYml0aktJRlhQV1l1SkhzVHFaeTBCMUtvT3JNcGEyMldodkVPOUUxbFhUblV4aExRMzBfejZIbTJzeHd2X2JVZWVLLdIB5wFBVV95cUxORUVGQjF0NFBPWEgwLTNVRkJUMTNqTXQ4LUxMUE1XUDYwZXJLR1RrM2VuVVdjQmZQMkxqNUdaVVI1eDFCOTJ6MXA1XzJHUHppQmVuOVVSYjhGWUpnQjFqU09sQThnbUJVR3VkYlNjWFk2Z1E4M0VhaUJkbGpaNTNXQ3RZbndvMDBpeXo3eVZiY19RRGY3LUU0SDRZQmdzaUlQWXVIQkQzOE8tNzJKVFpWSzhYazlXdDNEOEpZRThnNG1qaXZvOEdzZ0c5ejZkZzl0cV9aWnFFSnIySmsyQWtRanMzM3dhcms?oc=5",
+   "publishedAt": "2026-11-05T14:39:12.000Z"
+  },
+  {
    "id": "422bf0045f",
    "paper": "mint",
    "section": "business",
@@ -4483,17 +4626,6 @@
    "publishedAt": "2026-11-05T14:35:54.000Z"
   },
   {
-   "id": "5a9ca28020",
-   "paper": "deccan-herald",
-   "section": "business",
-   "desk": "Latest",
-   "title": "Quick commerce turns gold coins into a doorstep purchase",
-   "summary": "",
-   "author": "",
-   "url": "https://www.deccanherald.com/business/quick-commerce-turns-gold-coins-into-a-doorstep-purchase-4208999",
-   "publishedAt": "2026-11-05T14:35:18.000Z"
-  },
-  {
    "id": "effca7c57f",
    "paper": "the-hindu",
    "section": "world",
@@ -4536,17 +4668,6 @@
    "author": "",
    "url": "https://economictimes.indiatimes.com/industry/energy/oil-gas/indias-natural-gas-demand-to-decline-2-in-2026-despite-10-rise-in-lng-imports-iea/articleshow/135577192.cms",
    "publishedAt": "2026-11-05T14:33:50.000Z"
-  },
-  {
-   "id": "35a7935cb8",
-   "paper": "deccan-herald",
-   "section": "world",
-   "desk": "Latest",
-   "title": "US FAA says it will phase out '80s technology floppy disks by 2028",
-   "summary": "",
-   "author": "",
-   "url": "https://www.deccanherald.com/world/us/us-faa-says-it-will-phase-out-80s-technology-floppy-disks-by-2028-4208991",
-   "publishedAt": "2026-11-05T14:33:22.000Z"
   },
   {
    "id": "5d40f9ff74",
@@ -4703,17 +4824,6 @@
    "publishedAt": "2026-11-05T14:24:53.000Z"
   },
   {
-   "id": "9297d98422",
-   "paper": "deccan-herald",
-   "section": "nation",
-   "desk": "Latest",
-   "title": "'Confident of exceeding $220 billion investment to hit 500 GW non-fossil target by 2030': Union Minister Pralhad Joshi",
-   "summary": "",
-   "author": "",
-   "url": "https://www.deccanherald.com/india/confident-of-exceeding-220-billion-investment-to-hit-500-gw-non-fossil-target-by-2030-union-minister-pralhad-joshi-4209001",
-   "publishedAt": "2026-11-05T14:24:21.000Z"
-  },
-  {
    "id": "d9ac68453d",
    "paper": "indian-express",
    "section": "nation",
@@ -4745,17 +4855,6 @@
    "author": "",
    "url": "https://www.livemint.com/news/india/why-are-punjab-government-employees-unhappy-with-bhagwant-mann-s-diwali-gift-of-3-da-hike-11793887320572.html",
    "publishedAt": "2026-11-05T14:22:54.000Z"
-  },
-  {
-   "id": "68fe966720",
-   "paper": "deccan-herald",
-   "section": "nation",
-   "desk": "Latest",
-   "title": "Cash transfers should come with obligations, says Chief Economic Adviser",
-   "summary": "",
-   "author": "",
-   "url": "https://www.deccanherald.com/india/karnataka/cash-transfers-should-come-with-obligations-says-chief-economic-adviser-4209000",
-   "publishedAt": "2026-11-05T14:22:35.000Z"
   },
   {
    "id": "a011eb3597",
@@ -6804,17 +6903,6 @@
    "publishedAt": "2026-11-05T12:16:12.000Z"
   },
   {
-   "id": "a2f2e6eb84",
-   "paper": "indian-express",
-   "section": "sport",
-   "desk": "Sports",
-   "title": "- The Indian Express",
-   "summary": "",
-   "author": "",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNeHEtQjVtcm9qcU5RRjF1SmZMR2paSjh2OGhGQld1NmREWnphNkwtQ0JCa1lyRlZjMkFJaEtySTd4Yzd5NFlVZ1EtNXdGZmx3VjhRcVJ0SEtHVU9NaEdOYTBwUHUwQlB2dVZKa2pQY3pTS1VBd2d4cTEyd2hVMWloQUdzaTF0bVpwdzlnb0NpdXBoZlpmRFRyWmYxeUQ3NzdrOVlyQ0NhQXdjRDJrdWVUQQ?oc=5",
-   "publishedAt": "2026-11-05T12:15:42.000Z"
-  },
-  {
    "id": "6d2fe2e946",
    "paper": "businessline",
    "section": "business",
@@ -7145,6 +7233,17 @@
    "publishedAt": "2026-11-05T11:52:44.000Z"
   },
   {
+   "id": "0886e7d9a4",
+   "paper": "indian-express",
+   "section": "sport",
+   "desk": "Sports",
+   "title": "- The Indian Express",
+   "summary": "",
+   "author": "",
+   "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNbWd1RmRvazhFaVRqSTB4ZUdEUGJ5OTFZSmlDYktXM3lUSlJxbEZVdFFPdXpJNm5BcS1yUmo0Mkl0ZFNaOW5YVk96LXBFYTJwakdQVWdVQXRDYVVpR29ULUJlbjZKRm95dHJWWWJ5SkFLam9jcVg5cGVOVU0tWThXNVl2WTl6eWZWaFdVSHhaMV9takNQOXBPX2hvazR1Tkw2ZTJsN3ZscFY3aFNqc1ptYkNqZUVjUEJ5YjlNdFlWbmNGRVE4RzJoRXR2Wk81cjRxajhnclNYR0VsSEE0T2JHSQ?oc=5",
+   "publishedAt": "2026-11-05T11:52:42.000Z"
+  },
+  {
    "id": "6e39aa44c5",
    "paper": "financial-express",
    "section": "markets",
@@ -7275,17 +7374,6 @@
    "author": "",
    "url": "https://www.thehindu.com/business/Industry/alembic-pharma-q2-net-surges-81-to-335-crore/article71666706.ece",
    "publishedAt": "2026-11-05T11:46:28.000Z"
-  },
-  {
-   "id": "87176dbf03",
-   "paper": "times-of-india",
-   "section": "world",
-   "desk": "World",
-   "title": "'We are doing what the government won't': Greenpeace dumps nine giant boulders into the North Sea to create a 45-square-mile underwater 'rock barrier' against industrial fishing",
-   "summary": "Environmental activists from Greenpeace have deployed nine limestone boulders in the Southern North Sea to prevent bottom trawling.",
-   "author": "TOI World Desk",
-   "url": "https://timesofindia.indiatimes.com/world/uk/we-are-doing-what-the-government-wont-greenpeace-dumps-nine-giant-boulders-signed-by-celebrities-including-benedict-cumberbatch-and-simon-pegg-into-the-north-sea-to-create-a-45-square-mile-underwater-barrier-against-industrial-fishing/articleshow/135560120.cms",
-   "publishedAt": "2026-11-05T11:44:01.000Z"
   },
   {
    "id": "02733fb2cb",
@@ -7594,17 +7682,6 @@
    "author": "",
    "url": "https://www.hindustantimes.com/sports/football/cristiano-ronaldo-the-records-he-leaves-behind-in-portugal-colours-101793875382595.html",
    "publishedAt": "2026-11-05T11:30:08.000Z"
-  },
-  {
-   "id": "aa1c8532eb",
-   "paper": "times-of-india",
-   "section": "world",
-   "desk": "World",
-   "title": "Iowa landlord loses appeal over $351,446 divorce payment after $700,000 Ponzi scheme loss",
-   "summary": "An Iowa landlord, asserting a $700,000 loss from a Ponzi scheme, sought to reduce his divorce payment but was unsuccessful. The Iowa Court of Appeals confirmed the trial court's $351,446 ruling.",
-   "author": "TOI World Desk",
-   "url": "https://timesofindia.indiatimes.com/world/us/an-iowa-landlord-lost-700000-in-what-he-described-as-a-ponzi-scheme-as-his-marriage-fell-apart-a-court-upheld-a-351446-divorce-payment-despite-his-claim-that-much-of-the-property-belonged-to-him-before-marriage/articleshow/135570142.cms",
-   "publishedAt": "2026-11-05T11:30:00.000Z"
   },
   {
    "id": "c1445d4972",
@@ -7937,17 +8014,6 @@
    "publishedAt": "2026-11-05T11:10:14.000Z"
   },
   {
-   "id": "8b47727b8d",
-   "paper": "times-of-india",
-   "section": "world",
-   "desk": "World",
-   "title": "Toronto woman turns 2013 meal project into food charity 5N2",
-   "summary": "",
-   "author": "TOI World Desk",
-   "url": "https://timesofindia.indiatimes.com/world/rest-of-world/canadian-woman-seema-david-began-feeding-people-in-need-from-shared-kitchens-in-toronto-in-2013-she-later-built-5n2-into-a-food-charity-with-its-own-indoor-farms/articleshow/135566044.cms",
-   "publishedAt": "2026-11-05T11:10:00.000Z"
-  },
-  {
    "id": "1fea45ed34",
    "paper": "economic-times",
    "section": "markets",
@@ -8036,24 +8102,13 @@
    "publishedAt": "2026-11-05T11:02:43.000Z"
   },
   {
-   "id": "0b60f666b4",
-   "paper": "economic-times",
-   "section": "business",
-   "desk": "Top stories",
-   "title": "Gold's rally linked to $4 tn US debt trouble: WGC",
-   "summary": "",
-   "author": "",
-   "url": "https://economictimes.indiatimes.com/industry/cons-products/fashion-/-cosmetics-/-jewellery/golds-rally-is-not-just-about-wars-its-fundamentally-linked-to-40-tn-us-debt-wgc-india-ceo-sachin-jain/articleshow/135568030.cms",
-   "publishedAt": "2026-11-05T11:01:41.000Z"
-  },
-  {
    "id": "567d7da6e6",
    "paper": "times-of-india",
    "section": "world",
-   "desk": "World",
-   "title": "Mid-air chaos: Multiple flights in Europe diverted due to bomb threats",
+   "desk": "Top stories",
+   "title": "Mid-air mayhem: Multiple flights in Europe diverted due to bomb threats",
    "summary": "",
-   "author": "Prisha Patnaik",
+   "author": "PRISHA PATNAIK",
    "url": "https://timesofindia.indiatimes.com/world/europe/mid-air-chaos-multiple-flights-in-europe-diverted-due-to-bomb-threats/articleshow/135570328.cms",
    "publishedAt": "2026-11-05T11:00:27.000Z"
   },
@@ -10764,17 +10819,6 @@
    "publishedAt": "2026-11-05T07:37:00.000Z"
   },
   {
-   "id": "a19c14470d",
-   "paper": "hindustan-times",
-   "section": "nation",
-   "desk": "India",
-   "title": "Ankita Bhandari's parents stage protest at Rajghat, removed by police",
-   "summary": "Ankita Bhandari's parents visited Rajghat on Wednesday to offer prayers and interact with the media.",
-   "author": "",
-   "url": "https://www.hindustantimes.com/india-news/ankita-bhandari-murder-case-parents-stage-protest-at-rajghat-removed-by-police-101793863234979.html",
-   "publishedAt": "2026-11-05T07:36:15.000Z"
-  },
-  {
    "id": "26c01fc519",
    "paper": "the-hindu",
    "section": "tech",
@@ -12665,6 +12709,17 @@
    "author": "",
    "url": "https://www.livemint.com/opinion/delhi-air-pollution-school-closures-hybrid-classes-grap-11793843126209.html",
    "publishedAt": "2026-11-05T04:12:22.000Z"
+  },
+  {
+   "id": "dc5c6218f3",
+   "paper": "business-standard",
+   "section": "markets",
+   "desk": "Markets",
+   "title": "Ennature Bio Pharma Share Price",
+   "summary": "",
+   "author": "",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPMnJnR3JmbnB6TE9fMUYzQUZ2cjRkejN4Ulg3by1feUxNM0dFeXFhOGs5TjhMUkpOYVhDZk4zV0NDNUxYWDIwVnlib1RYU0hEUFNwRTVUb19UdGVTWWFYZEtMZEtkQ3FvSjNWa1lWUzVhSVNoYnR6Rl9EZkdLVDJicnRiME96YmlaQ3RUUE9pTHJ5dw?oc=5",
+   "publishedAt": "2026-11-05T04:12:16.000Z"
   },
   {
    "id": "3ab9e60670",
@@ -15659,39 +15714,6 @@
    "publishedAt": "2026-11-04T17:33:24.000Z"
   },
   {
-   "id": "f559003b99",
-   "paper": "financial-express",
-   "section": "business",
-   "desk": "Policy",
-   "title": "Green energy investment pledge hits $400 billion",
-   "summary": "",
-   "author": "",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPVDgwN3VmUS1XYkswbHFObkh1VkdDeWtpTzhIbFE3cXJGZFBxWXVmeko0VUFReV9vNDUtdFZHcGJyc3dlck9qQWFBU3FvUUZuMUFhcFpPVXhlWW15NldNRENXS0YtYUwtb2tNOGM3d183eUxMZkZiSEtDTTFRMEVlV1Z0WGhvcFUwN3htLXlJb0FXV196VnBBMlhnNEVaZWlOS3RBVDYtYUhYMFNmckHSAa4BQVVfeXFMT1Q4MDd1ZlEtV2JLMGxxTm5IdVZHQ3lraU84SGxRN3FyRmRQcVl1ZnpKNFVBUXlfbzQ1LXRWR3BicnN3ZXJPakFhQVNxb1FGbjFBYXBaT1V4ZVlteTZXTURDV0tGLWFMLW9rTThjN3dfN3lMTGZGYkhLQ00xUTBFZVdWdFhob3BVMDd4bS15SW9BV1dfelZwQTJYZzRFWmVpTkt0QVQ2LWFIWDBTZnJB?oc=5",
-   "publishedAt": "2026-11-04T17:31:49.000Z"
-  },
-  {
-   "id": "105f55dffa",
-   "paper": "business-standard",
-   "section": "markets",
-   "desk": "Markets",
-   "title": "Markets extend gains on US midterm results as Democrats sweep elections",
-   "summary": "",
-   "author": "",
-   "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOVnVxbVpJZFhBam1KWFN3LXVwUTNaQW5xTGhiM3Y1VC1CWXNFQm1qWFg5UjV5OExCRTNfX204SXdXNFo0eEhZWW5oTjc4QXlsSDB3ajJrQlJwRmhpUDVtQXRMSENpOXRrRk1XM2hWRDFxTnZoR0IwQndXcjB2UnB3OERTSDRTWUpvR3pPYmUwcG5UMkFSZXV5allGSG85empobTYtYVVjYm9wRWNTNXppTXo4NHVDaUQ5dXNNTm5DMmdWZndybC1QMnN5QlByM1JESzN5RNIB2gFBVV95cUxOUnBMRENuOU8yQWxOSTkxYWloaXRqNzhnQUREMXA5bm92ZWktOTJ3ekl3c3daVURLWEdLbkx0OHFUSEUtY2xNekNZVlJBTUkzdnFWMDNVTmZnSUdNNFNDbnNxU192ZHdobHFVbEgzUmNfZEdvZ2xhWmk3VWJpWUFtaTR5YWVPdmxiR1Y1MVQ2UF9JWnpCYmJlXzJRQk1tNEIwN3RQQW01Y2F5WlFwY2V5b0F1dVAwMGRGcDEzNEx1eFY1bVl5R1V6QzZfeFdweDdOMWkxN2FzQzNIUQ?oc=5",
-   "publishedAt": "2026-11-04T17:31:48.000Z"
-  },
-  {
-   "id": "6527485087",
-   "paper": "business-standard",
-   "section": "world",
-   "desk": "World",
-   "title": "Google extends voluntary buyout offers to staffers in many countries",
-   "summary": "",
-   "author": "",
-   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQdmdhUUVwd0pleXJEYkVZbHRpWkZTdGhJLWhvZlB0TnlYOFdtcHdQVXZtR2c0YUlyUkhmbWtMWmJydndGR19SN0s2R2I2NkpIejdJZGdWVEJXdF9qRWJ2TUdkejhxajZhc1M0SVd5WFlTUEJmYS1hdDk2dFdDa3hBeU1WYldLLThhM2o4RHlWc3diX1JHWjNWMFpDZFRqQk5UZHV3U1J5cW9xcUNmYnVBbHh5SkUtVENVQWZwbDIxSzd6VDd3dDcyMFhVc1BzZ9IB0wFBVV95cUxPV1ZpWm1QQzFiNW1tUnA0S19SZFdqYWdacDlzeHhQQjdjVUxQdnVUQjMtN21IR3luOVdVcVZ2OUEwdjY5OVZGd0RYY3Rkc2p2WVlHcUJHMkpLRVhkR2hCM0FBN1FyNFR2RHJnaEt0cXBmWFhJbllGX1lxRWdGN1l4dTlWZFJWOGcwQTI5VVYzM1o5dXNHYkVsanhpa3d0aXlEcEZRS29qdUhzcGl2ZVJTelZ6NGxGTlpKbW1ERVVNdmo4ZU1td1R6cFZKRmFVLVd4WnY0?oc=5",
-   "publishedAt": "2026-11-04T17:30:20.000Z"
-  },
-  {
    "id": "34bb6d2134",
    "paper": "mint",
    "section": "business",
@@ -15701,17 +15723,6 @@
    "author": "",
    "url": "https://www.livemint.com/industry/india-proposes-immediate-licence-suspension-for-substandard-drug-makers-11793808083701.html",
    "publishedAt": "2026-11-04T17:27:19.000Z"
-  },
-  {
-   "id": "a0c27d595e",
-   "paper": "financial-express",
-   "section": "business",
-   "desk": "Business",
-   "title": "TRAI launches platform to map mobile and broadband speeds",
-   "summary": "",
-   "author": "",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOWC1NVXhWMWJNTHYtVHNuV1A4MWtXQU9nSFk3SUo5ZElzSlZYZ1kyaHM3ZE9OTnJ0Z0NIenJWV0sxQW5DUk9CMmE3Qkw0YVFqNWZ3dTFwQmlWWHlfM202WjZ3ZXg2c0E3TG1COHhqRGx3clZUWmZ5dmdhWlZ6UHI1cVpMY09VSGM0TDdWS2RzX3MwSXFoZHRYSHB5QTdXNjNwUFZ0VmxQbVZxOEotbzl1M2dnODBPWWJE0gG_AUFVX3lxTE9TZDZYbV9pNXdhR1BaYWtoRkc5MnlTTy1MZzlmQWt2YWZLVkZKN00yNTdqbDFLWHA1amhQWU1UV1AtenlYZHJBbjE5aV8tUGJSTFBETnJUbjhoRlA1N2E5OE1kT1BtRVBCdkhnWnIzTmVsVWNCenJVT2wwYlZOTWZHVXlqR0tNRnZpQjRrZ1A4SngzS1J4SHRfYUh5enZ2YTZEWlZOcERubXctMHFYU3ozTkR2ZC1qRHFuV3BRMkgw?oc=5",
-   "publishedAt": "2026-11-04T17:26:04.000Z"
   },
   {
    "id": "7569de01e8",
@@ -16539,17 +16550,6 @@
    "publishedAt": "2026-11-04T13:22:49.000Z"
   },
   {
-   "id": "471111bb47",
-   "paper": "mint",
-   "section": "sport",
-   "desk": "Sports",
-   "title": "Novak Djokovic beats Valentin Vacherot in Paris Masters comeback as he chases ATP Finals spot in final weeks of season",
-   "summary": "Noavk Djokovic has shown throughout his career that he can produce his best tennis when the stakes are highest. The first-round comeback against Valentin Vacherot was a positive start.",
-   "author": "",
-   "url": "https://www.livemint.com/sports/news/novak-djokovic-beats-valentin-vacherot-in-paris-masters-comeback-as-he-chases-atp-finals-spot-in-final-weeks-of-season-11793798080591.html",
-   "publishedAt": "2026-11-04T13:19:21.000Z"
-  },
-  {
    "id": "43fd44e3a3",
    "paper": "economic-times",
    "section": "business",
@@ -16812,50 +16812,6 @@
    "author": "",
    "url": "https://economictimes.indiatimes.com/industry/services/property-/-cstruction/rustomjee-posts-record-1423-cr-pre-sales-in-q2-targets-rs-5000-cr-for-fy27/articleshow/135537485.cms",
    "publishedAt": "2026-11-04T11:40:16.000Z"
-  },
-  {
-   "id": "8aed954623",
-   "paper": "indian-express",
-   "section": "nation",
-   "desk": "Explained",
-   "title": "Trump’s midterm defeat: Good news or fresh trouble for India’s trade deal?",
-   "summary": "",
-   "author": "",
-   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNcnJLV1F4bFM0dVU2ajVDSWlBYmFFbkFCSExNbE9wZzBkOWhtWE5VRkRzMUh4Y2ZlSGNsalJmd0g1NjBsdjBMU2lINkNwUUNPT3RnLUNpaEEzSHl4RWU5VVNTaFUzWnA1dXBIRk9sN0pNeXZzRTJ6WjZZWGNUOGh5Ty1NYWFtbnNkVUdsRXVzYlFtOHRSV2xYZ1VSbVgzTk1pRC1Sd01QY25JYXVzTmlwVGhhSjVVZlUwUmFTOHJ3Sm5OelRTOEtzV1BkR2FCR05f0gHXAUFVX3lxTFAycThWQWtURFRTQzl5aE5HRURxQzFQeFB2bElHWEVkamg5eXh0bDJVdnpfNXdEQzhrb012Mzl6Z0k2QTRPS1dXQmZ0bENrbTNHMHl2VjU0MzNBbHIyZEdNOXZLVGlRaFlvbGFCSTVNbjNtUFFndW5rTWJDX2Uza0xkMzdrUkF5U29pN3dUZ1Jpd1hqdV9KUHVOWHpvSjZubmpFYXNkWWpiU0taNWlkbERlbXI3VGp5TXlsQ09wZkhvZDFZY3UtYXNPSl9PU3JsY0FqejJhUnk4?oc=5",
-   "publishedAt": "2026-11-04T11:31:48.000Z"
-  },
-  {
-   "id": "df10b58e6b",
-   "paper": "mint",
-   "section": "business",
-   "desk": "Industry",
-   "title": "DLF to launch next phase of Mumbai's The Westpark in November, prices start at ₹6.9 crore – All you need to know",
-   "summary": "After ₹2,300 crore sellout, DLF will be launching the second phase of his debut project in Mumbai, The Westpark. The upcoming phase will see 135 residences across two towers.",
-   "author": "",
-   "url": "https://www.livemint.com/industry/real-estate/dlf-to-launch-next-phase-of-mumbais-the-westpark-in-november-prices-start-at-6-9-crore-all-you-need-to-know-11793789629015.html",
-   "publishedAt": "2026-11-04T11:28:15.000Z"
-  },
-  {
-   "id": "7519051bf5",
-   "paper": "the-hindu",
-   "section": "business",
-   "desk": "Business",
-   "title": "Supreme Court upholds States’ power to levy additional sales tax, says case has become academic",
-   "summary": "The seven-judge Bench, led by CJI Surya Kant, said the reference in the Orissa Sales Tax Act case no longer requires adjudication since the challenged provisions have been amended and GST governs the issue moving forward",
-   "author": "",
-   "url": "https://www.thehindu.com/news/national/supreme-court-upholds-states-power-to-levy-additional-sales-tax-says-case-has-become-academic/article71664975.ece",
-   "publishedAt": "2026-11-04T11:25:35.000Z"
-  },
-  {
-   "id": "8a5905510b",
-   "paper": "mint",
-   "section": "business",
-   "desk": "Economy",
-   "title": "India sees some trade relief, new risks after US midterm vote",
-   "summary": "A bruised Trump after US midterm election results gives New Delhi some breathing room in negotiations over an India-US trade deal, reducing pressure to agree to terms it sees as unfavourable.",
-   "author": "",
-   "url": "https://www.livemint.com/economy/india-sees-some-trade-relief-new-risks-after-us-midterm-vote-11793790484848.html",
-   "publishedAt": "2026-11-04T11:24:29.000Z"
   },
   {
    "id": "712a62bb95",
