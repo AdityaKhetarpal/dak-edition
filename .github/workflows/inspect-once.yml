@@ -17,15 +17,13 @@ jobs:
         run: |
           cat > scripts/inspect-once.mjs <<'SCRIPT'
           import { fetchText } from '../lib/http.mjs';
-          const page = await fetchText('https://timesofindia.indiatimes.com/rss.cms', { attempts: 2 });
-          const rows = [...page.text.matchAll(/href="([^"]*rssfeeds[^"]*)"[^>]*>([^<]*)</g)].map((m) => `${m[2].trim()} ${m[1]}`);
-          console.log(`RESULT rss.cms size ${page.text.length}, feed links ${rows.length}`);
-          console.log(`RESULT ${rows.filter((row) => /opinion|edit|blog|view|column/i.test(row)).join(' || ').slice(0, 900)}`);
-          const blog = await fetchText('https://timesofindia.indiatimes.com/blogs/toi-editorials/', { attempts: 1 });
-          const anchors = [...blog.text.matchAll(/<a[^>]+href="(https:\/\/timesofindia\.indiatimes\.com\/blogs\/[^"]+)"[^>]*>([^<]{12,})</g)].map((m) => `${m[2].trim().slice(0, 50)} ${m[1].slice(38, 100)}`);
-          console.log(`RESULT anchors ${anchors.length}`);
-          for (const anchor of anchors.slice(0, 14)) console.log(`RESULT   ${anchor}`);
-          const years = [...blog.text.matchAll(/\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},?\s+2026/g)].map((m) => m[0]);
-          console.log(`RESULT dates on page ${[...new Set(years)].slice(0, 8).join(', ')}`);
+          import { parseFeed } from '../lib/feed.mjs';
+          const age = (iso) => Math.round((Date.now() - Date.parse(iso)) / 86_400_000);
+          const google = 'https://news.google.com/rss/search?q=site:timesofindia.indiatimes.com/blogs+when:30d&hl=en-IN&gl=IN&ceid=IN:en';
+          for (const item of parseFeed((await fetchText(google)).text).slice(0, 16)) console.log(`RESULT ${age(item.publishedAt)}d ${item.title.slice(0, 80)}`);
+          const page = await fetchText('https://timesofindia.indiatimes.com/blogs/edit-page/?ch=toi', { attempts: 1 });
+          const dates = [...page.text.matchAll(/\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+2026/g)].map((m) => m[0]);
+          const count = dates.reduce((all, date) => ({ ...all, [date]: (all[date] ?? 0) + 1 }), {});
+          console.log(`RESULT edit page dates ${JSON.stringify(count).slice(0, 400)}`);
           SCRIPT
           node scripts/inspect-once.mjs
