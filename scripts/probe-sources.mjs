@@ -15,7 +15,8 @@ async function probeFeed(url) {
     const items = parseFeed(text);
     const withSummary = items.filter((item) => item.summary).length;
     const newest = items.map((item) => item.publishedAt).filter(Boolean).sort().at(-1);
-    return `ok   ${String(items.length).padStart(3)} items, ${String(withSummary).padStart(3)} summaries, newest ${hoursAgo(newest)}h ago`;
+    const sample = process.env.PROBE_SAMPLES ? `\n       e.g. ${items[0]?.title}\n       ${items[0]?.url?.slice(0, 110)}` : '';
+    return `ok   ${String(items.length).padStart(3)} items, ${String(withSummary).padStart(3)} summaries, newest ${hoursAgo(newest)}h ago${sample}`;
   } catch (error) {
     return `FAIL ${error.message}`;
   }
@@ -43,7 +44,7 @@ console.log(feedLines.join('\n'));
 
 if (CANDIDATES.length) {
   console.log('\n== Candidates ==');
-  const lines = await mapLimit(CANDIDATES, 6, async (url) => `${await probeFeed(url)}  ${url}`);
+  const lines = await mapLimit(CANDIDATES, 3, async (url) => `${url}\n  ${await probeFeed(url)}`);
   console.log(lines.join('\n'));
 }
 

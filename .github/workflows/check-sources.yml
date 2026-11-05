@@ -27,3 +27,4 @@ jobs:
       - run: npm run probe
         env:
           PROBE_URLS: ${{ inputs.urls }}
+          PROBE_SAMPLES: 'true'
