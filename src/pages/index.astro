@@ -1,6 +1,7 @@
 ---
 import Broadsheet from '../components/Broadsheet.astro';
 import Masthead from '../components/Masthead.astro';
+import Seal from '../components/Seal.astro';
 import NewsPage from '../components/NewsPage.astro';
 import Story from '../components/Story.astro';
 import Topic from '../components/Topic.astro';
@@ -20,7 +21,7 @@ const inside = [
 
 <Sheet current="front" pageCount={front.pageCount}>
   <Broadsheet front={true} number={1}>
-    <span class="press-dots" aria-hidden="true"></span>
+    <Seal />
     <Masthead current="front" pageCount={front.pageCount} />
 
     {!hasNews && (

@@ -60,6 +60,10 @@ pink pages, and a back page for Technology and Sport.
   paper. It only loads on large screens.
 - Internal links turn the page with the browser's own View Transitions.
 
+The look is an original enchanted manuscript: aged parchment, gold ink, illuminated
+capitals, a wax seal, candlelight that follows the pointer, gold dust on the desk, and
+lead headlines that ink themselves in.
+
 All motion switches off for readers who ask for reduced motion, and every story works
 with JavaScript turned off. The weather in the masthead comes from
 [Open-Meteo](https://open-meteo.com/).

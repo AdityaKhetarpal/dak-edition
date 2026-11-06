@@ -1,4 +1,5 @@
 ---
+import Flourish from './Flourish.astro';
 import { edition, longDate } from '../lib/edition.js';
 
 const { number, name, href, pink = false, front = false } = Astro.props;
@@ -16,5 +17,6 @@ const { number, name, href, pink = false, front = false } = Astro.props;
       <span class="furniture-date">{longDate(edition.editionDate)}</span>
     </header>
   )}
+  <Flourish />
   <slot />
 </article>

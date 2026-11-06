@@ -87,7 +87,7 @@ async function runThePress() {
   await Promise.race([document.fonts.ready, new Promise((resolve) => setTimeout(resolve, 700))]);
 
   const banner = document.querySelector('.banner');
-  const split = banner ? SplitText.create(banner, { type: 'lines', mask: 'lines' }) : null;
+  const split = banner ? SplitText.create(banner, { type: 'words' }) : null;
 
   root.classList.remove('press-run');
 
@@ -103,8 +103,96 @@ async function runThePress() {
     .from('.broadsheet-front', { y: 90, rotateX: 5, transformOrigin: '50% 0%', opacity: 0, duration: 1 })
     .from('.title', { clipPath: 'inset(0 100% 0 0)', duration: 1.05, ease: 'power2.inOut' }, 0.15)
     .from('.folio, .sections', { scaleX: 0, opacity: 0, transformOrigin: '50% 50%', duration: 0.7, stagger: 0.08 }, 0.45)
-    .from(split?.lines ?? [], { yPercent: 105, duration: 0.8, stagger: 0.09 }, 0.7)
-    .from('.front .kicker, .deck, .roundup, .seconds .story, .talking', { opacity: 0, y: 14, duration: 0.55, stagger: 0.05 }, 0.95);
+    // The headline writes itself, one word at a time, as if the ink were seeping up.
+    .from(split?.words ?? [], { opacity: 0, filter: 'blur(6px)', duration: 0.75, stagger: 0.075, ease: 'power1.out' }, 0.75)
+    .from('.front .kicker, .deck, .roundup, .seconds .story, .talking', { opacity: 0, y: 14, duration: 0.55, stagger: 0.05 }, 1.15)
+    .from('.seal', { scale: 2.6, rotate: -28, opacity: 0, duration: 0.42, ease: 'back.out(2.4)', clearProps: 'all' }, '>-0.15');
+}
+
+// Lead headlines further down ink themselves in as they reach the reader.
+function inkTheHeadlines() {
+  gsap.utils.toArray('.broadsheet:not(.broadsheet-front) .story-hero .headline').forEach((headline) => {
+    gsap.from(headline, {
+      opacity: 0.08,
+      filter: 'blur(5px)',
+      duration: 1.1,
+      ease: 'power1.out',
+      clearProps: 'filter',
+      scrollTrigger: { trigger: headline, start: 'top 86%', once: true },
+    });
+  });
+}
+
+// A slow gleam of gold crosses the nameplate now and then.
+function gildTheTitle() {
+  gsap.fromTo(
+    '.title',
+    { backgroundPosition: '100% 0' },
+    { backgroundPosition: '0% 0', duration: 2.6, ease: 'sine.inOut', repeat: -1, repeatDelay: 8, delay: 2.2 },
+  );
+}
+
+// A warm pool of light follows the pointer, with a faint flicker.
+function lightTheCandle() {
+  const candle = document.querySelector('.candle');
+  if (!candle || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  candle.classList.add('is-lit');
+  const moveX = gsap.quickTo(candle, 'x', { duration: 0.7, ease: 'power3' });
+  const moveY = gsap.quickTo(candle, 'y', { duration: 0.7, ease: 'power3' });
+
+  gsap.set(candle, { x: innerWidth / 2, y: innerHeight / 3 });
+  addEventListener('pointermove', ({ clientX, clientY }) => {
+    moveX(clientX);
+    moveY(clientY);
+  });
+
+  const flicker = () => {
+    gsap.to(candle, {
+      opacity: gsap.utils.random(0.84, 1),
+      duration: gsap.utils.random(0.14, 0.5),
+      ease: 'sine.inOut',
+      onComplete: flicker,
+    });
+  };
+  flicker();
+}
+
+// Specks of gold drift up from the desk around the paper.
+function scatterGoldDust() {
+  const canvas = document.getElementById('gold-dust');
+  if (!canvas || !matchMedia('(min-width: 1100px)').matches) return;
+
+  const context = canvas.getContext('2d');
+  const fit = () => {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+  };
+  fit();
+  addEventListener('resize', fit);
+
+  const specks = Array.from({ length: 54 }, () => ({
+    x: Math.random(),
+    y: Math.random(),
+    size: 0.6 + Math.random() * 1.7,
+    rise: 0.00012 + Math.random() * 0.00034,
+    sway: Math.random() * Math.PI * 2,
+    glow: 0.25 + Math.random() * 0.55,
+  }));
+
+  gsap.ticker.add((time) => {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    for (const speck of specks) {
+      speck.y -= speck.rise;
+      if (speck.y < -0.02) speck.y = 1.02;
+      const x = (speck.x + Math.sin(time * 0.3 + speck.sway) * 0.012) * canvas.width;
+      context.globalAlpha = speck.glow * (0.6 + 0.4 * Math.sin(time * 1.4 + speck.sway));
+      context.fillStyle = '#e7bd62';
+      context.beginPath();
+      context.arc(x, speck.y * canvas.height, speck.size, 0, Math.PI * 2);
+      context.fill();
+    }
+  });
 }
 
 // Each page lifts off the desk and settles flat as it scrolls into view.
@@ -143,10 +231,10 @@ async function layTheDesk() {
       mouseControls: false,
       touchControls: false,
       gyroControls: false,
-      baseColor: 0x14120e,
-      lowlightColor: 0x24201a,
-      midtoneColor: 0x39332a,
-      highlightColor: 0x6d6350,
+      baseColor: 0x100e1f,
+      lowlightColor: 0x1d1a3a,
+      midtoneColor: 0x362c5e,
+      highlightColor: 0x8c6a2c,
       blurFactor: 0.68,
       speed: 0.7,
       zoom: 1.15,
@@ -166,6 +254,10 @@ setUpRunningHead();
 gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
   runThePress();
   settleThePages();
+  inkTheHeadlines();
+  gildTheTitle();
+  lightTheCandle();
+  scatterGoldDust();
 
   const lay = () => layTheDesk();
   if ('requestIdleCallback' in window) requestIdleCallback(lay, { timeout: 2500 });
