@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { PAPERS, SECTIONS } from '../config/papers.mjs';
-import { assembleEdition, isFitToPrint, issueNumber, istDate } from '../lib/edition.mjs';
+import { assembleEdition, isFiledThisMorning, isFitToPrint, issueNumber, istDate } from '../lib/edition.mjs';
 
 const now = new Date('2026-11-06T02:40:00Z');
 const paper = PAPERS[0];
@@ -48,4 +48,12 @@ test('every paper is set up completely', () => {
     assert.ok(item.feeds.length > 0, item.id);
     assert.ok(item.feeds.every((entry) => sections.has(entry.section)), item.id);
   }
+});
+
+test('only an edition filed this morning stops the safety-net runs', () => {
+  const eightThirty = new Date('2026-11-06T03:00:00Z');
+  assert.equal(isFiledThisMorning('2026-11-06T02:40:00Z', eightThirty), true, 'filed at 8:10 AM today');
+  assert.equal(isFiledThisMorning('2026-11-05T17:48:00Z', eightThirty), false, 'filed at 11:18 PM last night');
+  assert.equal(isFiledThisMorning('2026-11-05T19:00:00Z', eightThirty), false, 'filed at 12:30 AM today');
+  assert.equal(isFiledThisMorning(null, eightThirty), false);
 });

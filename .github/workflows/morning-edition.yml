@@ -2,10 +2,17 @@ name: Morning edition
 
 on:
   schedule:
-    # Cron times are UTC. GitHub often starts scheduled runs late, so these
-    # begin well ahead of 8:30 AM IST.
+    # Cron times are UTC. GitHub can start scheduled runs late or drop them, so
+    # there are several chances. The first one that works files the edition, and
+    # the rest stop straight away.
+    - cron: '20 2 * * *' # 7:50 AM IST
     - cron: '35 2 * * *' # 8:05 AM IST
-    - cron: '52 2 * * *' # 8:22 AM IST, in case the first run is dropped
+    - cron: '50 2 * * *' # 8:20 AM IST
+    - cron: '10 3 * * *' # 8:40 AM IST
+    - cron: '40 3 * * *' # 9:10 AM IST
+    - cron: '40 4 * * *' # 10:10 AM IST
+    - cron: '40 6 * * *' # 12:10 PM IST
+    - cron: '*/10 * * * *' # Temporary: proves the schedule fires
   workflow_dispatch:
 
 permissions:
@@ -28,7 +35,7 @@ jobs:
       - run: npm ci
       - name: Fetch the papers
         env:
-          SKIP_IF_RECENT: ${{ github.event_name == 'schedule' }}
+          SKIP_IF_FILED_TODAY: ${{ github.event_name == 'schedule' }}
         run: npm run file-edition
       - name: Publish the edition
         run: |

@@ -1,25 +1,24 @@
 // Runs each morning from .github/workflows/morning-edition.yml.
 // Fetches the feeds and writes data/edition.json, which the site is built from.
 import { readFile, writeFile } from 'node:fs/promises';
-import { assembleEdition, fetchAllFeeds, isFitToPrint } from '../lib/edition.mjs';
+import { assembleEdition, fetchAllFeeds, isFiledThisMorning, isFitToPrint } from '../lib/edition.mjs';
 
 const EDITION_FILE = new URL('../data/edition.json', import.meta.url);
-const RECENT_MINUTES = 40;
-
-// GitHub's schedule runs twice as a safety net. The second run stops here if
-// the first one already worked.
+// The schedule has several runs a day as a safety net. Only the first one that
+// works should file; the others stop here. An edition filed by hand late last
+// night doesn't count as today's.
 async function alreadyFiled() {
-  if (process.env.SKIP_IF_RECENT !== 'true') return false;
+  if (process.env.SKIP_IF_FILED_TODAY !== 'true') return false;
   try {
     const { filedAt } = JSON.parse(await readFile(EDITION_FILE, 'utf8'));
-    return filedAt && Date.now() - Date.parse(filedAt) < RECENT_MINUTES * 60_000;
+    return isFiledThisMorning(filedAt, new Date());
   } catch {
     return false;
   }
 }
 
 if (await alreadyFiled()) {
-  console.log('An edition was filed in the last few minutes. Nothing to do.');
+  console.log("Today's edition is already filed. Nothing to do.");
   process.exit(0);
 }
 
