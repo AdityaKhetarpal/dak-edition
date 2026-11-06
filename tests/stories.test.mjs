@@ -44,6 +44,7 @@ test('leaves out galleries and horoscopes', () => {
   const stories = buildStories([{ paper, feed: { section: 'top', label: 'Latest' }, items: [
     item('https://x.com/photos/a', 'Pictures of the day'),
     item('https://x.com/news/b', 'Horoscope for Thursday'),
+    item('https://x.com/companies', 'Companies News | Find Latest Company News Online'),
     item('https://x.com/news/c', 'A real story'),
   ] }], now);
   assert.deepEqual(stories.map((story) => story.title), ['A real story']);
