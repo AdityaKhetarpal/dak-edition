@@ -1,0 +1,24 @@
+---
+import Story from './Story.astro';
+
+// A newspaper page: one story leads, two sit beside it, and the rest run in
+// narrow columns. Headline size follows rank.
+const { stories, showPaper = true, showDesk = false } = Astro.props;
+const [hero, ...rest] = stories;
+const seconds = rest.slice(0, 2);
+const run = rest.slice(2);
+---
+
+{hero && (
+  <div class="news-page">
+    <div class="news-top">
+      <Story story={hero} size="hero" showPaper={showPaper} showDesk={showDesk} dropCap={true} />
+      {seconds.map((story) => <Story story={story} size="second" showPaper={showPaper} showDesk={showDesk} />)}
+    </div>
+    {run.length > 0 && (
+      <div class="run">
+        {run.map((story) => <Story story={story} showPaper={showPaper} showDesk={showDesk} />)}
+      </div>
+    )}
+  </div>
+)}

@@ -2,6 +2,7 @@
 // Fetches the feeds and writes data/edition.json, which the site is built from.
 import { readFile, writeFile } from 'node:fs/promises';
 import { assembleEdition, fetchAllFeeds, isFiledThisMorning, isFitToPrint } from '../lib/edition.mjs';
+import { fetchWeather } from '../lib/weather.mjs';
 
 const EDITION_FILE = new URL('../data/edition.json', import.meta.url);
 // The schedule has several runs a day as a safety net. Only the first one that
@@ -23,7 +24,7 @@ if (await alreadyFiled()) {
 }
 
 const results = await fetchAllFeeds();
-const edition = assembleEdition(results);
+const edition = { ...assembleEdition(results), weather: await fetchWeather() };
 
 for (const paper of edition.papers) {
   const note = paper.failed.length ? `  failed: ${paper.failed.join('; ')}` : '';

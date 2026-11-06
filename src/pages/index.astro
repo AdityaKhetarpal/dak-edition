@@ -1,107 +1,187 @@
 ---
-import Column from '../components/Column.astro';
+import Broadsheet from '../components/Broadsheet.astro';
+import Masthead from '../components/Masthead.astro';
+import NewsPage from '../components/NewsPage.astro';
 import Story from '../components/Story.astro';
 import Topic from '../components/Topic.astro';
 import Sheet from '../layouts/Sheet.astro';
-import { PAPERS, edition, frontPage, reportFor } from '../lib/edition.js';
+import { PAPERS, edition, frontPage, isEditorial, reportFor } from '../lib/edition.js';
 
 const front = frontPage();
 const hasNews = edition.stories.length > 0;
-const alsoIn = front.banner?.coverage.filter(({ story }) => story.id !== front.lead.id) ?? [];
+const [nation, world, opinion, pink, back] = front.pages;
+
+const editorials = opinion.stories.filter(isEditorial);
+const columns = opinion.stories.filter((story) => !isEditorial(story));
+const inside = [
+  ...front.pages.map((page) => ({ name: page.name, href: `#page-${page.number}`, number: page.number })),
+];
 ---
 
-<Sheet current="front">
-  {!hasNews && (
-    <section class="press-note">
-      <h1>The first edition is on the press</h1>
-      <p>Stories appear here after the next morning run, by 8:30 AM IST.</p>
-    </section>
-  )}
+<Sheet current="front" pageCount={front.pageCount}>
+  <Broadsheet front={true} number={1}>
+    <span class="press-dots" aria-hidden="true"></span>
+    <Masthead current="front" pageCount={front.pageCount} />
 
-  {hasNews && (
-    <>
-      <div class="front">
-        <div class="front-news">
-          <Story story={front.lead} size="lead" />
-          {alsoIn.length > 0 && (
-            <p class="also-in">
-              Also in{' '}
-              {alsoIn.map(({ paper, story }, index) => (
-                <>
-                  <a href={story.url} target="_blank" rel="noopener">{paper.name.replace(/^The /, '')}</a>
-                  {index < alsoIn.length - 1 ? ', ' : ''}
-                </>
-              ))}
-            </p>
-          )}
-          <div class="seconds">
-            {front.seconds.map((story) => <Story story={story} size="second" />)}
-          </div>
-          <div class="thirds">
-            {front.thirds.map((story) => <Story story={story} />)}
-          </div>
-        </div>
+    {!hasNews && (
+      <section class="press-note">
+        <h1>The first edition is on the press</h1>
+        <p>Stories appear here after the next morning run, by 8:30 AM IST.</p>
+      </section>
+    )}
 
-        {front.topics.length > 0 && (
+    {hasNews && (
+      <>
+        <div class="front">
+          <div class="front-news">
+            <div class="lead">
+              {front.banner && <p class="kicker">{front.banner.name}</p>}
+              <h1 class="banner">
+                <a href={front.lead.url} target="_blank" rel="noopener">{front.lead.title}</a>
+              </h1>
+              <div class="lead-body">
+                <div>
+                  {front.lead.summary && <p class="deck dropcap">{front.lead.summary}</p>}
+                  <p class="credit lead-credit">
+                    <a class="credit-paper" href={`/paper/${front.lead.paper}/`}>
+                      {PAPERS.find((paper) => paper.id === front.lead.paper).name}
+                    </a>
+                  </p>
+                  {front.banner && (
+                    <p class="jump">
+                      <a href={`/topic/${front.banner.slug}/`}>
+                        Continued: all {front.banner.stories.length} reports from {front.banner.papers.length} papers
+                      </a>
+                    </p>
+                  )}
+                </div>
+                {front.roundup.length > 0 && (
+                  <aside class="roundup">
+                    <h2 class="roundup-head">How the papers ran it</h2>
+                    <ul>
+                      {front.roundup.map(({ paper, story }) => (
+                        <li>
+                          <span class="roundup-paper">{paper.name.replace(/^The /, '')}</span>
+                          <a href={story.url} target="_blank" rel="noopener">{story.title}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  </aside>
+                )}
+              </div>
+            </div>
+
+            <div class="seconds">
+              {front.seconds.map(({ leadStory, name }) => <Story story={leadStory} size="second" kicker={name} />)}
+            </div>
+
+            <div class="thirds">
+              {front.thirds.map(({ story, kicker }) => <Story story={story} kicker={kicker} />)}
+            </div>
+          </div>
+
           <aside class="talking" aria-labelledby="talking-head">
             <h2 class="talking-head" id="talking-head">
               <a href="/talking-points/">Talking points</a>
             </h2>
-            <p class="talking-note">What the most papers ran. Tap a paper to read its take.</p>
+            <p class="talking-note">What the most papers ran. Choose a paper to read its take.</p>
             {front.topics.map((topic) => <Topic topic={topic} />)}
           </aside>
-        )}
-      </div>
-
-      <section class="stand" aria-labelledby="stand-head">
-        <h2 class="band-head" id="stand-head">Today&rsquo;s papers</h2>
-        <ul class="stand-list">
-          {PAPERS.map((paper) => {
-            const report = reportFor(paper.id);
-            return (
-              <li class="stand-paper">
-                <a class="stand-name" href={`/paper/${paper.id}/`}>{paper.name}</a>
-                <span class="stand-count">
-                  {report?.stories ? `${report.stories} stories` : 'No stories today'}
-                </span>
-                <a class="stand-epaper" href={paper.epaper} target="_blank" rel="noopener">E-paper</a>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
-
-      <section class="leader" aria-labelledby="leader-head">
-        <h2 class="band-head" id="leader-head"><a href="/section/opinion/">Editorials &amp; columns</a></h2>
-        <div class="leader-columns">
-          {front.opinion.map((story) => <Story story={story} showDesk={true} />)}
         </div>
-      </section>
 
-      <section class="pink" aria-labelledby="pink-head">
-        <div class="pink-inner">
-          <h2 class="pink-head" id="pink-head">The pink pages</h2>
-          <div class="pink-grid">
-            <div class="pink-business">
-              <h3 class="pink-desk"><a href="/section/business/">Business</a></h3>
-              <div class="pink-columns">
-                {front.business.map((story) => <Story story={story} />)}
-              </div>
-            </div>
-            <div class="pink-markets">
-              <h3 class="pink-desk"><a href="/section/markets/">Markets</a></h3>
-              {front.markets.map((story) => <Story story={story} />)}
-            </div>
+        <div class="below-fold">
+          <section class="index-box" aria-labelledby="index-head">
+            <h2 id="index-head">Inside today</h2>
+            <ol>
+              {inside.map((item) => (
+                <li><a href={item.href}><span>{item.name}</span><span class="leader"></span><span>{item.number}</span></a></li>
+              ))}
+            </ol>
+          </section>
+
+          <section class="briefs" aria-labelledby="briefs-head">
+            <h2 id="briefs-head">In brief</h2>
+            <ul>
+              {front.briefs.map((story) => (
+                <li>
+                  <a href={story.url} target="_blank" rel="noopener">{story.title}</a>
+                  <span class="brief-paper">{PAPERS.find((paper) => paper.id === story.paper).sigil}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+
+        <section class="stand" aria-labelledby="stand-head">
+          <h2 class="band-head" id="stand-head">Today&rsquo;s papers</h2>
+          <ul class="stand-list">
+            {PAPERS.map((paper) => {
+              const report = reportFor(paper.id);
+              return (
+                <li class="stand-paper">
+                  <a class="stand-name" href={`/paper/${paper.id}/`}>{paper.name}</a>
+                  <span class="stand-count">{report?.stories ? `${report.stories} stories` : 'No stories today'}</span>
+                  <a class="stand-epaper" href={paper.epaper} target="_blank" rel="noopener">E-paper</a>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      </>
+    )}
+  </Broadsheet>
+
+  {hasNews && (
+    <>
+      <Broadsheet {...nation}><NewsPage stories={nation.stories} /></Broadsheet>
+      <Broadsheet {...world}><NewsPage stories={world.stories} /></Broadsheet>
+
+      <Broadsheet {...opinion}>
+        <div class="editorial-page">
+          <section class="leaders" aria-label="Editorials">
+            {editorials.slice(0, 6).map((story, index) => (
+              <Story story={story} size="leader" showDesk={true} dropCap={index === 0} />
+            ))}
+          </section>
+          <section class="op-ed" aria-label="Columns">
+            {columns.concat(editorials.slice(6)).map((story) => <Story story={story} showDesk={true} />)}
+          </section>
+        </div>
+      </Broadsheet>
+
+      <Broadsheet {...pink}>
+        <div class="pink-grid">
+          <div class="pink-business">
+            <h3 class="pink-desk"><a href="/section/business/">Business</a></h3>
+            <NewsPage stories={pink.business} />
+          </div>
+          <div class="pink-markets">
+            <h3 class="pink-desk"><a href="/section/markets/">Markets</a></h3>
+            {pink.markets.map((story) => <Story story={story} />)}
           </div>
         </div>
-      </section>
+      </Broadsheet>
 
-      <div class="desks">
-        <Column title="Nation" href="/section/nation/" stories={front.nation} />
-        <Column title="World" href="/section/world/" stories={front.world} />
-        <Column title="Technology" href="/section/tech/" stories={front.tech} />
-        <Column title="Sport" href="/section/sport/" stories={front.sport} />
-      </div>
+      <Broadsheet {...back}>
+        <div class="back-page">
+          <section>
+            <h3 class="pink-desk"><a href="/section/tech/">Technology</a></h3>
+            <NewsPage stories={back.tech} />
+          </section>
+          <section>
+            <h3 class="pink-desk"><a href="/section/sport/">Sport</a></h3>
+            <NewsPage stories={back.sport} />
+          </section>
+        </div>
+        <footer class="colophon">
+          <p>
+            Headlines and short summaries come from each paper&rsquo;s public feed, or from Google News and Bing News
+            where a paper has no open feed. Stories open on the paper&rsquo;s own site, where some need a subscription.
+          </p>
+          <p><a href="/feeds/">Follow this paper in a feed reader</a></p>
+          <p>A dak edition is the early run of a newspaper, sent out by post to readers far from the press.</p>
+        </footer>
+      </Broadsheet>
     </>
   )}
 </Sheet>

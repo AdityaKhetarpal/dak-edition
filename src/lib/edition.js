@@ -57,20 +57,28 @@ export function dealByPaper(stories, limit = Infinity) {
 
 export const inSection = (sectionId) => edition.stories.filter((story) => story.section === sectionId);
 
+// A story with a summary carries a big slot better than a bare headline.
+const summaryFirst = (stories) => [
+  ...stories.filter((story) => story.summary),
+  ...stories.filter((story) => !story.summary),
+];
+
+export const isEditorial = (story) => /editorial/i.test(story.desk);
+
 // Editorials lead the opinion page, then columns by date.
 export function opinionStories() {
-  const isEditorial = (story) => /editorial/i.test(story.desk);
   const stories = inSection('opinion');
   return [...stories.filter(isEditorial), ...stories.filter((story) => !isEditorial(story))];
 }
 
 export function frontPage() {
   const used = new Set();
-  const take = (stories, limit) => {
-    const picked = dealByPaper(stories.filter((story) => !used.has(story.id)), limit);
-    picked.forEach((story) => used.add(story.id));
-    return picked;
+  const mark = (stories) => {
+    stories.forEach((story) => used.add(story.id));
+    return stories;
   };
+  const take = (stories, limit) =>
+    summaryFirst(mark(dealByPaper(stories.filter((story) => !used.has(story.id)), limit)));
 
   const topics = edition.topics.map((topic) => ({
     ...topic,
@@ -86,38 +94,53 @@ export function frontPage() {
   const lead = banner?.leadStory ?? edition.stories[0];
   if (lead) used.add(lead.id);
 
-  const seconds = topics
-    .filter((topic) => topic !== banner)
-    .slice(0, 3)
-    .map((topic) => topic.leadStory);
-  seconds.forEach((story) => used.add(story.id));
+  const others = topics.filter((topic) => topic !== banner);
+  const seconds = others.slice(0, 2);
+  mark(seconds.map((topic) => topic.leadStory));
 
-  // The rest of the front page: other talking points, then the day's hard news.
-  const moreLeads = topics
-    .filter((topic) => topic !== banner)
-    .slice(3)
-    .map((topic) => topic.leadStory)
-    .filter((story) => story.summary);
-  moreLeads.forEach((story) => used.add(story.id));
+  const thirdTopics = others.slice(2, 6).filter((topic) => topic.leadStory.summary);
+  mark(thirdTopics.map((topic) => topic.leadStory));
 
-  const hardNews = edition.stories.filter(
-    (story) => story.summary && ['nation', 'world', 'business'].includes(story.section),
-  );
-  const thirds = [...moreLeads, ...take(hardNews, Math.max(0, 12 - moreLeads.length))];
+  const isHardNews = (story) => ['nation', 'world', 'business'].includes(story.section);
+  const fillers = take(edition.stories.filter((story) => story.summary && isHardNews(story)), Math.max(0, 6 - thirdTopics.length));
+  const thirds = [
+    ...thirdTopics.map((topic) => ({ story: topic.leadStory, kicker: topic.name })),
+    ...fillers.map((story) => ({ story })),
+  ];
+
+  const briefs = take(edition.stories.filter(isHardNews), 9);
+
+  const pages = [
+    { id: 'nation', name: 'Nation', href: '/section/nation/', stories: take(inSection('nation'), 18) },
+    { id: 'world', name: 'World', href: '/section/world/', stories: take(inSection('world'), 15) },
+    { id: 'opinion', name: 'The editorial page', href: '/section/opinion/', stories: take(opinionStories(), 20) },
+    {
+      id: 'pink',
+      name: 'The pink pages',
+      href: '/section/business/',
+      pink: true,
+      business: take(inSection('business'), 15),
+      markets: take(inSection('markets'), 7),
+    },
+    {
+      id: 'back',
+      name: 'Technology and sport',
+      href: '/section/tech/',
+      tech: take(inSection('tech'), 9),
+      sport: take(inSection('sport'), 9),
+    },
+  ].map((page, index) => ({ ...page, number: index + 2 }));
 
   return {
     banner,
     lead,
+    roundup: banner ? banner.coverage.filter(({ story }) => story.id !== lead.id).slice(0, 4) : [],
     seconds,
     thirds,
-    topics: topics.slice(0, 8),
+    briefs,
+    topics: topics.slice(0, 7),
     allTopics: topics,
-    opinion: take(opinionStories(), 12),
-    business: take(inSection('business'), 9),
-    markets: take(inSection('markets'), 6),
-    nation: take(inSection('nation'), 7),
-    world: take(inSection('world'), 7),
-    tech: take(inSection('tech'), 7),
-    sport: take(inSection('sport'), 7),
+    pages,
+    pageCount: pages.length + 1,
   };
 }

@@ -1,5 +1,7 @@
 ---
-import Story from '../../components/Story.astro';
+import Broadsheet from '../../components/Broadsheet.astro';
+import Masthead from '../../components/Masthead.astro';
+import NewsPage from '../../components/NewsPage.astro';
 import Sheet from '../../layouts/Sheet.astro';
 import { SECTIONS, dealByPaper, inSection, opinionStories } from '../../lib/edition.js';
 
@@ -15,7 +17,8 @@ const stories = dealByPaper(pool, MOST_PER_PAGE);
 ---
 
 <Sheet title={section.name} current={section.id} feed={`/rss/section/${section.id}.xml`}>
-  <div class={section.pink ? 'pink-page' : ''}>
+  <Broadsheet pink={section.pink}>
+    <Masthead current={section.id} compact={true} />
     <header class="page-head">
       <h1>{section.name}</h1>
       <p>{pool.length} stories today, taken from every paper in turn.</p>
@@ -23,8 +26,6 @@ const stories = dealByPaper(pool, MOST_PER_PAGE);
 
     {stories.length === 0 && <p class="press-note">Nothing in this section yet.</p>}
 
-    <div class="running-columns">
-      {stories.map((story) => <Story story={story} showDesk={section.id === 'opinion'} />)}
-    </div>
-  </div>
+    <NewsPage stories={stories} showDesk={section.id === 'opinion'} />
+  </Broadsheet>
 </Sheet>

@@ -1,0 +1,56 @@
+---
+import { PAPERS, SECTIONS, clockTime, edition, longDate } from '../lib/edition.js';
+
+const { current, compact = false, pageCount } = Astro.props;
+
+const papersIn = edition.papers.filter((paper) => paper.stories > 0).length;
+const storyCount = edition.stories.length.toLocaleString('en-IN');
+const { weather } = edition;
+---
+
+<header class:list={['masthead', { 'masthead-compact': compact }]}>
+  <div class="nameplate">
+    <div class="ear">
+      {storyCount} stories<br />from {papersIn} papers
+    </div>
+    <a class="title" href="/">The Dak Edition</a>
+    <div class="ear">
+      {weather ? (
+        <>
+          {weather.city} today<br />
+          {weather.sky && <>{weather.sky}, </>}{weather.high}&deg; / {weather.low}&deg;
+        </>
+      ) : (
+        <>Edition of<br />{longDate(edition.editionDate).split(' ').slice(1, 3).join(' ')}</>
+      )}
+    </div>
+  </div>
+
+  <p class="motto">Every morning&rsquo;s papers, on one sheet</p>
+
+  <div class="folio">
+    <span>Vol. I, No. {edition.issue}</span>
+    <span class="folio-date">New Delhi, {longDate(edition.editionDate)}</span>
+    <span>
+      {pageCount ? `${pageCount} pages, ` : ''}
+      {edition.filedAt ? `filed ${clockTime(edition.filedAt)} IST` : 'first edition on the press'}
+    </span>
+  </div>
+
+  <nav class="sections" aria-label="Sections">
+    <a href="/" aria-current={current === 'front' ? 'page' : undefined}>Front page</a>
+    <a href="/talking-points/" aria-current={current === 'topics' ? 'page' : undefined}>Talking points</a>
+    {SECTIONS.map((section) => (
+      <a href={`/section/${section.id}/`} aria-current={current === section.id ? 'page' : undefined}>
+        {section.id === 'opinion' ? 'Opinion' : section.name}
+      </a>
+    ))}
+  </nav>
+  <nav class="newsstand" aria-label="Newspapers">
+    {PAPERS.map((paper) => (
+      <a href={`/paper/${paper.id}/`} aria-current={current === paper.id ? 'page' : undefined}>
+        {paper.name.replace(/^The /, '')}
+      </a>
+    ))}
+  </nav>
+</header>

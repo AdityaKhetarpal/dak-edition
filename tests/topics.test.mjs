@@ -64,6 +64,15 @@ test('prefers a proper name over a vague word', () => {
   assert.match(name, /Adani Green/);
 });
 
+test('a topic name never ends on a number', () => {
+  const name = nameTopic([
+    story('mint', 'Mahindra Q2 profit rises 20% on tractor sales'),
+    story('the-hindu', 'Mahindra profit rises 20 per cent in second quarter'),
+    story('indian-express', 'Mahindra profit rises 20%, tractors lead'),
+  ]);
+  assert.doesNotMatch(name, /\d$/);
+});
+
 test('a number never names a topic', () => {
   const name = nameTopic([
     story('mint', '24-hour bank strike hits Kerala branches'),

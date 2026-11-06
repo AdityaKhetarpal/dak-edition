@@ -1,4 +1,6 @@
 ---
+import Broadsheet from '../components/Broadsheet.astro';
+import Masthead from '../components/Masthead.astro';
 import Sheet from '../layouts/Sheet.astro';
 import Topic from '../components/Topic.astro';
 import { frontPage } from '../lib/edition.js';
@@ -7,6 +9,8 @@ const { allTopics: all } = frontPage();
 ---
 
 <Sheet title="Talking points" current="topics" feed="/rss/talking-points.xml">
+  <Broadsheet>
+  <Masthead current="topics" compact={true} />
   <header class="page-head">
     <h1>Talking points</h1>
     <p>The stories that the most papers ran today. Each paper&rsquo;s name opens its own piece.</p>
@@ -17,4 +21,5 @@ const { allTopics: all } = frontPage();
   <div class="topic-board">
     {all.map((topic) => <Topic topic={topic} />)}
   </div>
+  </Broadsheet>
 </Sheet>

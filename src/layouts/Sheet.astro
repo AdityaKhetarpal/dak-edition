@@ -5,15 +5,14 @@ import '@fontsource/old-standard-tt/400-italic.css';
 import '@fontsource/old-standard-tt/700.css';
 import '@fontsource-variable/newsreader/opsz.css';
 import '@fontsource-variable/newsreader/opsz-italic.css';
+import 'lenis/dist/lenis.css';
 import '../styles/sheet.css';
-import { PAPERS, SECTIONS, clockTime, edition, longDate } from '../lib/edition.js';
+import { SECTIONS, edition, longDate } from '../lib/edition.js';
 
-const { title, current, feed } = Astro.props;
+const { title, current, feed, pageCount } = Astro.props;
 
 const pageTitle = title ? `${title} | The Dak Edition` : 'The Dak Edition';
 const dateLine = longDate(edition.editionDate);
-const papersIn = edition.papers.filter((paper) => paper.stories > 0).length;
-const storyCount = edition.stories.length.toLocaleString('en-IN');
 ---
 
 <!doctype html>
@@ -24,70 +23,64 @@ const storyCount = edition.stories.length.toLocaleString('en-IN');
     <title>{pageTitle}</title>
     <meta name="description" content="Every morning's Indian newspapers, on one sheet." />
     <meta name="robots" content="noindex" />
-    <meta name="theme-color" content="#eae5d6" />
+    <meta name="theme-color" content="#14120e" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate" type="application/rss+xml" title="The Dak Edition" href="/rss.xml" />
     {feed && <link rel="alternate" type="application/rss+xml" title={`${title} | The Dak Edition`} href={feed} />}
+    <script is:inline>
+      // The print run plays once a visit. If the script never arrives, the page
+      // shows itself after two seconds rather than staying blank.
+      (function () {
+        try {
+          var calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if (calm || location.pathname !== '/' || sessionStorage.getItem('dak-printed')) return;
+          var root = document.documentElement;
+          root.classList.add('press-run');
+          setTimeout(function () { root.classList.remove('press-run'); }, 2000);
+        } catch (error) {}
+      })();
+    </script>
   </head>
   <body>
-    <a class="skip" href="#sheet">Skip to the stories</a>
+    <a class="skip" href="#edition">Skip to the stories</a>
+    <div id="desk" aria-hidden="true"></div>
+    <div class="reading-rule" aria-hidden="true"></div>
 
-    <header class="masthead">
-      <div class="folio">
-        <span>Vol. I, No. {edition.issue}</span>
-        <span class="folio-date">New Delhi, {dateLine}</span>
-        <span>{edition.filedAt ? `Filed ${clockTime(edition.filedAt)} IST` : 'First edition on the press'}</span>
-      </div>
-
-      <div class="nameplate">
-        <p class="ear">Every morning&rsquo;s papers, on one sheet</p>
-        <a class="title" href="/">The Dak Edition</a>
-        <p class="ear ear-count">
-          {storyCount} stories<br />from {papersIn} papers
-        </p>
-      </div>
-
-      <nav class="sections" aria-label="Sections">
-        <a href="/" aria-current={current === 'front' ? 'page' : undefined}>Front page</a>
-        <a href="/talking-points/" aria-current={current === 'topics' ? 'page' : undefined}>Talking points</a>
+    <div class="running-head" aria-hidden="true">
+      <a class="running-title" href="/" tabindex="-1">The Dak Edition</a>
+      <span class="running-date">{dateLine}</span>
+      <nav class="running-nav">
+        <a href="/talking-points/" tabindex="-1">Talking points</a>
         {SECTIONS.map((section) => (
-          <a href={`/section/${section.id}/`} aria-current={current === section.id ? 'page' : undefined}>
-            {section.id === 'opinion' ? 'Opinion' : section.name}
-          </a>
+          <a href={`/section/${section.id}/`} tabindex="-1">{section.id === 'opinion' ? 'Opinion' : section.name}</a>
         ))}
       </nav>
-      <nav class="newsstand" aria-label="Newspapers">
-        {PAPERS.map((paper) => (
-          <a href={`/paper/${paper.id}/`} aria-current={current === paper.id ? 'page' : undefined}>
-            {paper.name.replace(/^The /, '')}
-          </a>
-        ))}
-      </nav>
-    </header>
+    </div>
 
     <p class="late-notice" id="late-notice" hidden>
       This is the {dateLine} edition. Today&rsquo;s has not been filed yet.
     </p>
 
-    <main class="sheet" id="sheet">
+    <main class="edition" id="edition" data-current={current}>
       <slot />
     </main>
 
-    <footer class="colophon">
-      <p>
-        Headlines and short summaries come from each paper&rsquo;s public feed, or from Google News and Bing
-        News where a paper has no open feed. Stories open on the paper&rsquo;s own site, where some need a
-        subscription.
-      </p>
-      <p><a href="/feeds/">Follow this paper in a feed reader</a></p>
-      <p>A dak edition is the early run of a newspaper, sent out by post to readers far from the press.</p>
-    </footer>
+    {pageCount && (
+      <nav class="page-tab" aria-label="Turn the page">
+        <button type="button" data-turn="-1" aria-label="Previous page">&lsaquo;</button>
+        <span><span id="page-now">Page 1</span> of {pageCount}</span>
+        <button type="button" data-turn="1" aria-label="Next page">&rsaquo;</button>
+      </nav>
+    )}
+
+    <script>
+      import '../scripts/press.js';
+    </script>
 
     <script is:inline>
       (function () {
         var now = new Date();
-        var zone = { timeZone: 'Asia/Kolkata' };
-        var today = new Intl.DateTimeFormat('en-CA', zone).format(now);
+        var today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata' }).format(now);
         var hour = Number(new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Kolkata', hour: '2-digit', hour12: false }).format(now));
         if (document.documentElement.dataset.edition < today && hour >= 9) {
           document.getElementById('late-notice').hidden = false;

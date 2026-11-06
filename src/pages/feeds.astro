@@ -1,4 +1,6 @@
 ---
+import Broadsheet from '../components/Broadsheet.astro';
+import Masthead from '../components/Masthead.astro';
 import Sheet from '../layouts/Sheet.astro';
 import { PAPERS, SECTIONS } from '../lib/edition.js';
 
@@ -23,6 +25,8 @@ const groups = [
 ---
 
 <Sheet title="RSS feeds">
+  <Broadsheet>
+  <Masthead compact={true} />
   <header class="page-head">
     <h1>RSS feeds</h1>
     <p>Paste any of these links into a feed reader such as Feedly. They refresh with each morning&rsquo;s edition.</p>
@@ -43,4 +47,5 @@ const groups = [
       </section>
     ))}
   </div>
+  </Broadsheet>
 </Sheet>

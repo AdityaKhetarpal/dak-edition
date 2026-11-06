@@ -1,4 +1,6 @@
 ---
+import Broadsheet from '../../components/Broadsheet.astro';
+import Masthead from '../../components/Masthead.astro';
 import Story from '../../components/Story.astro';
 import Sheet from '../../layouts/Sheet.astro';
 import { PAPERS, edition, paperOf, storyById } from '../../lib/edition.js';
@@ -16,6 +18,8 @@ const groups = PAPERS.map((paper) => ({
 ---
 
 <Sheet title={topic.name} current="topics">
+  <Broadsheet>
+  <Masthead current="topics" compact={true} />
   <header class="page-head">
     <p class="page-kicker"><a href="/talking-points/">Talking points</a></p>
     <h1>{topic.name}</h1>
@@ -30,4 +34,5 @@ const groups = PAPERS.map((paper) => ({
       </section>
     ))}
   </div>
+  </Broadsheet>
 </Sheet>

@@ -1,0 +1,20 @@
+---
+import { edition, longDate } from '../lib/edition.js';
+
+const { number, name, href, pink = false, front = false } = Astro.props;
+---
+
+<article
+  class:list={['broadsheet', { 'broadsheet-front': front, 'broadsheet-pink': pink }]}
+  id={number ? `page-${number}` : undefined}
+  data-page={number}
+>
+  {!front && name && (
+    <header class="page-furniture">
+      <span class="furniture-folio">{number ? `Page ${number}` : 'The Dak Edition'}</span>
+      <h2 class="page-flag">{href ? <a href={href}>{name}</a> : name}</h2>
+      <span class="furniture-date">{longDate(edition.editionDate)}</span>
+    </header>
+  )}
+  <slot />
+</article>

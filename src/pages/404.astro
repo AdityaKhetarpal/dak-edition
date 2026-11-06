@@ -1,10 +1,15 @@
 ---
+import Broadsheet from '../components/Broadsheet.astro';
+import Masthead from '../components/Masthead.astro';
 import Sheet from '../layouts/Sheet.astro';
 ---
 
 <Sheet title="Page not found">
+  <Broadsheet>
+  <Masthead compact={true} />
   <section class="press-note">
     <h1>This page is not in today&rsquo;s edition</h1>
     <p>Topic pages change every morning. <a href="/">Go to the front page</a>.</p>
   </section>
+  </Broadsheet>
 </Sheet>

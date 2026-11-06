@@ -1,5 +1,7 @@
 ---
-import Story from '../../components/Story.astro';
+import Broadsheet from '../../components/Broadsheet.astro';
+import Masthead from '../../components/Masthead.astro';
+import NewsPage from '../../components/NewsPage.astro';
 import Sheet from '../../layouts/Sheet.astro';
 import { PAPERS, SECTIONS, edition, reportFor } from '../../lib/edition.js';
 
@@ -18,6 +20,8 @@ const pages = SECTIONS.map((section) => ({
 ---
 
 <Sheet title={paper.name} current={paper.id} feed={`/rss/paper/${paper.id}.xml`}>
+  <Broadsheet>
+  <Masthead current={paper.id} compact={true} />
   <header class="page-head paper-head">
     <h1>{paper.name}</h1>
     <p class="paper-links">
@@ -47,9 +51,8 @@ const pages = SECTIONS.map((section) => ({
   {pages.map((page) => (
     <section class="paper-section">
       <h2 class="band-head">{page.section.name}</h2>
-      <div class="running-columns">
-        {page.stories.map((story) => <Story story={story} showPaper={false} showDesk={true} />)}
-      </div>
+      <NewsPage stories={page.stories} showPaper={false} showDesk={true} />
     </section>
   ))}
+  </Broadsheet>
 </Sheet>

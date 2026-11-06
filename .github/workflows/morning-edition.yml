@@ -12,8 +12,14 @@ on:
     - cron: '40 3 * * *' # 9:10 AM IST
     - cron: '40 4 * * *' # 10:10 AM IST
     - cron: '40 6 * * *' # 12:10 PM IST
-    - cron: '*/10 * * * *' # Temporary: proves the schedule fires
+  # GitHub's scheduler can be hours late or skip a new repo altogether, so a
+  # daily outside trigger also starts this run, with only_if_missing set.
   workflow_dispatch:
+    inputs:
+      only_if_missing:
+        description: Stop if this morning's edition is already filed
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -35,7 +41,7 @@ jobs:
       - run: npm ci
       - name: Fetch the papers
         env:
-          SKIP_IF_FILED_TODAY: ${{ github.event_name == 'schedule' }}
+          SKIP_IF_FILED_TODAY: ${{ github.event_name == 'schedule' || inputs.only_if_missing }}
         run: npm run file-edition
       - name: Publish the edition
         run: |
